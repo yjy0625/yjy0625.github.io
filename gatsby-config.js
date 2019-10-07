@@ -5,5 +5,18 @@
  */
 
 module.exports = {
-  /* Your site config here */
+    siteMetadata: {
+        name: `Jingyun Yang`,
+    },
+    plugins: [
+        `gatsby-plugin-less`,
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `src`,
+                path: `${__dirname}/src/data`
+            }
+        },
+        `gatsby-transformer-json`
+    ],
 }

@@ -1,0 +1,14 @@
+{
+    "title": "Learning to Coordinate Manipulation Skills via Skill Behavior Diversification",
+    "authors": ["Youngwoon Lee", "Jingyun Yang", "Joseph J. Lim"],
+    "image": "/images/coordination_iclr2020.gif",
+    "venue": "Preprint",
+    "year": 2019,
+    "links": [
+        {
+            "name": "Paper",
+            "url": "/publications/coordination_iclr2020.pdf"
+        }
+    ],
+    "abstract": "Autonomous agents with multiple end-effectors can perform a complex task by coordinating sub-skills of each end-effector. To realize temporal and behavioral coordination of skills, we propose a hierarchical framework that first individually trains sub-skills of each end-effector with skill behavior diversification, and learns to coordinate end-effectors using diverse behaviors of the skills. We demonstrate that our proposed framework is able to efficiently learn sub-skills with diverse behaviors and coordinate them to solve challenging collaborative control tasks."
+}
