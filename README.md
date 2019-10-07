@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://yjy0625.github.io">
-    <img alt="Gatsby" src="https://github.com/yjy0625/yjy0625.github.io/blob/master/src/data/images/icon.png" width="60" />
+    <img alt="Gatsby" src="https://github.com/yjy0625/yjy0625.github.io/blob/dev/src/data/images/icon.png" width="60" />
   </a>
 </p>
 <h1 align="center">
