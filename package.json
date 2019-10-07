@@ -16,12 +16,14 @@
   "dependencies": {
     "gatsby": "^2.15.28",
     "gatsby-plugin-less": "^3.0.9",
+    "gatsby-plugin-react-helmet": "^3.1.10",
     "gatsby-source-filesystem": "^2.1.28",
     "gatsby-transformer-json": "^2.2.12",
     "less": "^3.10.3",
     "npm": "^6.11.3",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
+    "react-helmet": "^5.2.1",
     "semantic-ui-less": "^2.4.1",
     "semantic-ui-react": "^0.88.1"
   },
