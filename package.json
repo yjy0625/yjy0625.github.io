@@ -17,6 +17,7 @@
     "gatsby": "^2.15.28",
     "gatsby-plugin-less": "^3.0.9",
     "gatsby-plugin-react-helmet": "^3.1.10",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.1.28",
     "gatsby-transformer-json": "^2.2.12",
     "less": "^3.10.3",

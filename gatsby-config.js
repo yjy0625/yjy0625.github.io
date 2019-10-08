@@ -18,6 +18,14 @@ module.exports = {
             }
         },
         `gatsby-transformer-json`,
-        `gatsby-plugin-react-helmet`
+        `gatsby-plugin-react-helmet`,
+        {
+            resolve: `gatsby-plugin-web-font-loader`,
+            options: {
+                google: {
+                    families: ['Source Sans Pro:200,400,600,700']
+                }
+            }
+        }
     ],
 }
