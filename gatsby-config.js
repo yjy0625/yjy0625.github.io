@@ -26,6 +26,13 @@ module.exports = {
                     families: ['Source Sans Pro:200,400,600,700']
                 }
             }
+        },
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: "UA-94084189-2",
+                head: false
+            }
         }
     ],
 }
