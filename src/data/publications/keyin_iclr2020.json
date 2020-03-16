@@ -4,11 +4,15 @@
                 "Konstantinos G. Derpanis", "Kostas Daniilidis", "Joseph J. Lim", "Andrew Jaegle"],
     "image": "/images/keyin_iclr2020.gif",
     "venue": "Preprint",
-    "year": 2019,
+    "year": 2020,
     "links": [
         {
             "name": "Paper",
             "url": "/publications/keyin_iclr2020.pdf"
+        },
+        {
+            "name": "Website",
+            "url": "https://sites.google.com/view/keyin"
         }
     ],
     "abstract": "To flexibly and efficiently reason about temporal sequences, abstract representations that compactly represent the important information in the sequence are needed. We propose to construct such representations using a hierarchical Keyframe-Inpainter (KeyIn) model that first generates keyframes and their temporal placement and then inpaints the sequences between keyframes. We propose a fully differentiable formulation for efficiently learning the keyframe placement. We show that KeyIn finds informative keyframes in several datasets with diverse dynamics. When evaluated on a planning task, KeyIn outperforms other recent proposals for learning hierarchical representations."
