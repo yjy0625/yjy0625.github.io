@@ -13,7 +13,10 @@ export default props => {
                     name
                 }
             }
-			allPublicationsJson {
+			allPublicationsJson(sort: {
+                fields: [year, month],
+                order: [DESC, DESC]
+            }) {
 				edges {
 					node {
 						title
@@ -21,6 +24,7 @@ export default props => {
                         image
                         venue
                         year
+                        month
 						links {
 							name
 							url
@@ -51,7 +55,7 @@ export default props => {
 
     /* publications */
 
-    const publications = data.allPublicationsJson.edges;
+    var publications = data.allPublicationsJson.edges;
     const coauthors = data.dataJson.coauthors.reduce((map, obj) => {
         map[obj.name] = obj.homepage;
         return map;
@@ -77,6 +81,13 @@ export default props => {
             return (<span>[ <a href={url} className="inline_link">{name}</a> ]</span>);
         });
 
+        const underReviewKeywards = ["Review", "review", "Submission", "submission",
+                                     "Preprint", "preprint"];
+        var venueName = "" + node.venue + ", " + node.year;
+        if(underReviewKeywards.some(str => node.venue.includes(str))) {
+            venueName = node.venue;
+        }
+
         return (
             <Item>
                 <Item.Image src={node.image} alt="teaser_image" />
@@ -84,7 +95,7 @@ export default props => {
                     <Item.Header>{node.title}</Item.Header>
                     <Item.Description>
                         <div className={styles.publication_author}>{authorHtml}</div>
-                        <div className={styles.publication_venue}>{node.venue}, {node.year}</div>
+                        <div className={styles.publication_venue}>{venueName}</div>
                         <div className={styles.publication_abstract}>{node.abstract}</div>
                     </Item.Description>
                     <Item.Extra>
@@ -145,7 +156,7 @@ export default props => {
         <div>
             <div className={styles.wrapper}>
                 <Container>
-                    <Header as="h1" className={styles.section_title}>Research</Header>
+                    <Header as="h1" className={styles.section_title}>Publications</Header>
                     <Item.Group>
                         { renderedPublications }
                     </Item.Group>
@@ -162,7 +173,7 @@ export default props => {
             <div className={styles.wrapper}>
                 <Container>
                     <Header as="h1" className={styles.section_title}>Teaching</Header>
-                    <Card.Group centered itemsPerRow={2}>
+                    <Card.Group centered itemsPerRow={3}>
                         { renderedTeaching }
                     </Card.Group>
                 </Container>

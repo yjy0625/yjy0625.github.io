@@ -35,9 +35,37 @@
         {
             "name": "Oleh Rybkin",
             "homepage": "https://www.seas.upenn.edu/~oleh/"
+        },
+        {
+            "name": "Hsiao-Yu Fish Tung",
+            "homepage": "https://sfish0101.bitbucket.io/"
+        },
+        {
+            "name": "Yunchu Zhang",
+            "homepage": "https://yunchuzhang.github.io/"
+        },
+        {
+            "name": "Gaurav Pathak",
+            "homepage": "https://in.linkedin.com/in/gauravpathak1"
+        },
+        {
+            "name": "Ashwini Pokle",
+            "homepage": "https://ashwinipokle.github.io/"
+        },
+        {
+            "name": "Christopher G. Atkeson",
+            "homepage": "http://www.cs.cmu.edu/~cga/"
+        },
+        {
+            "name": "Katerina Fragkiadaki",
+            "homepage": "https://www.cs.cmu.edu/~katef/"
         }
     ],
     "awards": [
+        {
+            "name": "USC University Trustees Award",
+            "time": "Spring 2020"
+        },
         {
             "name": "USC Provost's Undergraduate Research Fellowship",
             "time": "Fall 2019, Summer 2019"
@@ -52,6 +80,13 @@
         }
     ],
     "teaching": [
+        {
+            "code": "CSCI 356",
+            "name": "Introduction to Computer Systems",
+            "title": "Course Producer",
+            "school": "USC",
+            "time": "Spring 2020"
+        },
         {
             "code": "CSCI 170",
             "name": "Discrete Methods in Computer Science",
