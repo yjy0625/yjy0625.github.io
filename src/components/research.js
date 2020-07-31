@@ -64,11 +64,16 @@ export default props => {
     const renderedPublications = publications.map(({ node }, index) => {
         const authorList = node.authors;
         const authorToHtml = (name) => {
-            if(name === data.site.siteMetadata.name) {
+            var nameOnly = name;
+            if(name.endsWith("*")) {
+                nameOnly = name.slice(0, -1);
+            }
+            
+            if(nameOnly === data.site.siteMetadata.name) {
                 return (<span key={name} className={styles.me}>{name}</span>);
             }
-            if(name in coauthors) {
-                return (<a href={coauthors[name]} className="inline_link" key={name}>{name}</a>);
+            if(nameOnly in coauthors) {
+                return (<a href={coauthors[nameOnly]} className="inline_link" key={name}>{name}</a>);
             }
             else {
                 return (<span key={name}>{name}</span>);

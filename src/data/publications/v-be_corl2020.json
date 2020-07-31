@@ -1,6 +1,6 @@
 {
     "title": "Visually-Grounded Library of Behaviours for Generalizing Manipulation Across Objects, Configurations, and Views",
-    "authors": ["Hsiao-Yu Fish Tung", "Jingyun Yang",
+    "authors": ["Hsiao-Yu Fish Tung*", "Jingyun Yang*",
                 "Yunchu Zhang", "Gaurav Pathak", "Ashwini Pokle", "Christopher G. Atkeson", "Katerina Fragkiadaki"],
     "image": "/images/v-be_corl2020.gif",
     "venue": "In Submission",
