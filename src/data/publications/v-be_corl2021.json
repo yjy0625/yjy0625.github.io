@@ -1,0 +1,17 @@
+{
+    "title": "Visually-Grounded Library of Behaviours for Generalizing Manipulation Across Objects, Configurations, and Views",
+    "authors": ["Jingyun Yang*", "Hsiao-Yu Fish Tung*",
+                "Yunchu Zhang*", "Gaurav Pathak", "Ashwini Pokle",
+                "Christopher G. Atkeson", "Katerina Fragkiadaki"],
+    "image": "/images/v-be_corl2021.gif",
+    "venue": "CoRL",
+    "year": 2021,
+    "month": 11,
+    "links": [
+        {
+            "name": "Paper",
+            "url": "/publications/v-be_corl2021.pdf"
+        }
+    ],
+    "abstract": "We propose a method for manipulating diverse objects across a wide range of initial and goal configurations and camera placements. We disentangle the standard image-to-action mapping into two separate modules: (1) a behavior selector which conditions onintrinsic and semantically-rich object appearance features to select the behaviors that can successfully perform the desired tasks on the object in hand, and (2) a library of behaviors each of which conditions on extrinsic and abstract object properties, such as object location and pose, to predict actions to execute over time. Our framework outperforms various learning and non-learning based baselines in graping and pushing tasks."
+}
