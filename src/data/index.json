@@ -81,17 +81,17 @@
     ],
     "teaching": [
         {
-            "code": "10601",
+            "code": "10301/10601",
             "name": "Introduction to Machine Learning",
             "title": "Teaching Assistant",
-            "score": "CMU",
+            "school": "CMU",
             "time": "Fall 2021"
         },
         {
             "code": "36700",
             "name": "Probability and Mathematical Statistics",
             "title": "Teaching Assistant",
-            "score": "CMU",
+            "school": "CMU",
             "time": "Spring 2021"
         },
         {
