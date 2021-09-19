@@ -1,0 +1,15 @@
+{
+    "title": "Learning Periodic Tasks from Human Demonstrations",
+    "authors": ["Jingyun Yang", "Junwu Zhang", "Connor Settle", "Akshara Rai", "Rika Antonova", "Jeannette Bohg"],
+    "image": "/images/viptl_icra2022.gif",
+    "venue": "IEEE International Conference on Robotics and Automation (ICRA)",
+    "year": 2022,
+    "month": 1,
+    "links": [
+        {
+            "name": "Paper",
+            "url": "/publications/viptl_icra2022.pdf"
+        }
+    ],
+    "abstract": "We develop a method for learning periodic tasks from visual demonstrations. The core idea is to leverage periodicity in the policy structure to model periodic aspects of the tasks. We use active learning to optimize parameters of rhythmic dynamic movement primitives (rDMPs) and propose an objective to maximize the similarity between the motion of objects manipulated by the robot and the desired motion in human video demonstrations. We present simulation and hardware experiments on manipulation tasks with deformable and granular objects to validate our approach."
+}
