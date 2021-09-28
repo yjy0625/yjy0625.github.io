@@ -1,5 +1,5 @@
 {
-    "title": "A Visually-Grounded Library of Behaviors for Learning to Manipulate Diverse Objects across Diverse Configurations and Views",
+    "title": "Visually-Grounded Library of Behaviors for Manipulating Diverse Objects across Diverse Configurations and Views",
     "authors": ["Jingyun Yang*", "Hsiao-Yu Fish Tung*",
                 "Yunchu Zhang*", "Gaurav Pathak", "Ashwini Pokle",
                 "Christopher G. Atkeson", "Katerina Fragkiadaki"],
@@ -11,7 +11,11 @@
         {
             "name": "Paper",
             "url": "/publications/v-be_corl2021.pdf"
+        },
+        {
+            "name": "OpenReview",
+            "url": "https://openreview.net/forum?id=sIVC-oZN1PQ"
         }
     ],
-    "abstract": "We propose a method for manipulating diverse objects across a wide range of initial and goal configurations and camera placements. We disentangle the standard image-to-action mapping into two separate modules: (1) a behavior selector which conditions onintrinsic and semantically-rich object appearance features to select the behaviors that can successfully perform the desired tasks on the object in hand, and (2) a library of behaviors each of which conditions on extrinsic and abstract object properties, such as object location and pose, to predict actions to execute over time. Our framework outperforms various learning and non-learning based baselines in both simulated and real robot tasks."
+    "abstract": "We propose a method for manipulating diverse objects across a wide range of initial and goal configurations and camera placements. We disentangle the standard image-to-action mapping into two separate modules: (1) a behavior selector which conditions on intrinsic and semantically-rich object appearance features to select the behaviors that can successfully perform the desired tasks on the object in hand, and (2) a library of behaviors each of which conditions on extrinsic and abstract object properties to predict actions to execute over time. Our framework outperforms various learning and non-learning based baselines in both simulated and real robot tasks."
 }
