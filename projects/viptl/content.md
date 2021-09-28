@@ -16,14 +16,6 @@
 
 ----
 
-### Quantitative Results
-
-![Simulated Experiments](./img/sim.png "")
-
-![Real Robot Experiments](./img/real.png "")
-
-----
-
 ### Citations
 ```
 @inproceedings{
