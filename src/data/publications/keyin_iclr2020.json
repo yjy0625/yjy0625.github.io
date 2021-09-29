@@ -1,6 +1,6 @@
 {
-    "title": "KeyIn: Keyframing for Visual Planning",
-    "authors": ["Karl Pertsch", "Oleh Rybkin", "Jingyun Yang",
+    "title": "Keyframing the Future: Keyframe Discovery for Visual Prediction and Planning",
+    "authors": ["Karl Pertsch*", "Oleh Rybkin*", "Jingyun Yang", "Shenghao Zhou",
                 "Konstantinos G. Derpanis", "Kostas Daniilidis", "Joseph J. Lim", "Andrew Jaegle"],
     "image": "/images/keyin_l4dc2020.gif",
     "venue": "Learning for Dynamics and Control (L4DC)",
@@ -12,8 +12,16 @@
             "url": "/publications/keyin_l4dc2020.pdf"
         },
         {
-            "name": "arxiv",
+            "name": "Website",
+            "url": "https://sites.google.com/view/keyin"
+        },
+        {
+            "name": "Arxiv",
             "url": "https://arxiv.org/abs/1904.05869"
+        },
+        {
+            "name": "Video",
+            "url": "https://www.youtube.com/watch?v=e2hVV5FDKf8"
         }
     ],
     "abstract": "To flexibly and efficiently reason about temporal sequences, abstract representations that compactly represent the important information in the sequence are needed. We propose to construct such representations using a hierarchical Keyframe-Inpainter (KeyIn) model that first generates keyframes and their temporal placement and then inpaints the sequences between keyframes. We propose a fully differentiable formulation for efficiently learning the keyframe placement. We show that KeyIn finds informative keyframes in several datasets with diverse dynamics. When evaluated on a planning task, KeyIn outperforms other recent proposals for learning hierarchical representations."

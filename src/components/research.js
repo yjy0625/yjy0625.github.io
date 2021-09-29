@@ -150,7 +150,7 @@ export default props => {
     /* footer */
 
     const reactLink = (<a href="https://reactjs.org/" className="inline_link">React</a>);
-    const gatsbyLink = (<a href="https://www.gatsbyjs.org/" className="inline_link">Gatbsy</a>);
+    const gatsbyLink = (<a href="https://www.gatsbyjs.org/" className="inline_link">Gatsby</a>);
     const semanticLink = (<a href="https://semantic-ui.com/" className="inline_link">Semantic UI</a>);
 
     const footerText = (
