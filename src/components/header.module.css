@@ -7,10 +7,13 @@
 
 .menu {
     height: 100px;
+    justify-content: center;
 }
 
 .icon {
-    padding: 0 !important;
+    /*padding: 0 !important;*/
+    display: block !important;
+    text-align: center;
 }
 
 img, .link, .link_special {
@@ -62,7 +65,6 @@ img {
     .icon {
         display: block !important;
         text-align: center;
-        align-self: unset !important;
     }
 
     .link_special {

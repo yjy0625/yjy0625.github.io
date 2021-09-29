@@ -1,5 +1,5 @@
 import React from "react"
-import { Grid, Container, Header, Button, Popup } from "semantic-ui-react"
+import { Grid, Container, Header, Button } from "semantic-ui-react"
 import styles from "./bio.module.css"
 import Headshot from "../data/images/headshot.png"
 

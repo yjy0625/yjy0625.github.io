@@ -120,7 +120,7 @@ export default props => {
             <Card className={styles.card} color="blue">
                 <Card.Content>
                     <Card.Header className={styles.name}>{name}</Card.Header>
-                    <Card.Description className={styles.time}><i class="calendar alternate outline icon" /> {time}</Card.Description>
+                    <Card.Description className={styles.time}><i className="calendar alternate outline icon" /> {time}</Card.Description>
                 </Card.Content>
             </Card>
         )
@@ -136,11 +136,11 @@ export default props => {
                 <Card.Content>
                     <Card.Header className={styles.name}>{code} - {name}</Card.Header>
                     <Card.Description className={styles.time}>
-                        <i class="map pin icon" /> {school}
+                        <i className="map pin icon" /> {school}
                         <br/>
-                        <i class="tag icon" /> {title}
+                        <i className="tag icon" /> {title}
                         <br/>
-                        <i class="calendar alternate outline icon" /> {time}
+                        <i className="calendar alternate outline icon" /> {time}
                     </Card.Description>
                 </Card.Content>
             </Card>
