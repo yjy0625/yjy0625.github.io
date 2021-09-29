@@ -7,6 +7,7 @@ import Icon from "../data/images/icon.png"
 export default props => {
 
     return (
+        <div className={styles.container}>
         <Container>
             <Menu stackable secondary size="large" className={styles.menu}>
                 <Menu.Item className={styles.icon}>
@@ -26,6 +27,7 @@ export default props => {
                 </Menu.Item>
             </Menu>
         </Container>
+        </div>
     )
 
 }

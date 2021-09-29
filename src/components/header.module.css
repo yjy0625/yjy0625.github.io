@@ -1,3 +1,10 @@
+.container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #FFFAF5;
+}
+
 .menu {
     height: 100px;
 }
@@ -31,17 +38,34 @@ img {
 }
 
 .link:hover {
-    color: #4285f4;
+    color: #654545;
 }
 
 .link_special {
     margin-left: 10px;
     background-color: white;
-    border: 1px solid #4285f4;
-    color: #4285f4;
+    border: 1px solid #654545;
+    color: #654545;
+    background-color: rgba(255, 255, 255, 0.0);
 }
 
 .link_special:hover {
     color: white;
-    background-color: #4285f4;
+    background-color: #654545;
+}
+
+@media only screen and (max-width: 767px) {
+    .menu {
+        justify-content: center;
+    }
+
+    .icon {
+        display: block !important;
+        text-align: center;
+        align-self: unset !important;
+    }
+
+    .link_special {
+        display: none;
+    }
 }

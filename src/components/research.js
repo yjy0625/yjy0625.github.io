@@ -95,7 +95,7 @@ export default props => {
 
         return (
             <Item>
-                <Item.Image src={node.image} alt="teaser_image" />
+                <Item.Image src={node.image} alt="teaser_image" className={styles.teaser} />
                 <Item.Content>
                     <Item.Header>{node.title}</Item.Header>
                     <Item.Description>
@@ -178,7 +178,7 @@ export default props => {
             <div className={styles.wrapper}>
                 <Container>
                     <Header as="h1" className={styles.section_title}>Teaching</Header>
-                    <Card.Group centered itemsPerRow={3}>
+                    <Card.Group centered>
                         { renderedTeaching }
                     </Card.Group>
                 </Container>

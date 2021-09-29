@@ -1,3 +1,10 @@
+.container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #FFFAF5;
+}
+
 .grid {
     padding-top: 0 !important;
 }
@@ -31,12 +38,17 @@
 }
 
 .external_link_btn {
-    transition: transform 0.1s !important; 
-    transform: scale(1.0);
+    transition: background-color 0.1s !important;
+    border: 1px solid #654545 !important;
+    color: #654545 !important;
+    padding: 0.7em 1em !important;
+    font-weight: 500 !important;
+    background-color: rgba(255, 255, 255, 0) !important;
 }
 
 .external_link_btn:hover {
-    transform: scale(1.2);
+    background-color: #654545 !important;
+    color: #FFFAF5 !important;
 }
 
 .headshot_container {
@@ -49,4 +61,21 @@
     max-width: 350px;
     margin: 0 auto;
     float: right;
+}
+
+@media only screen and (max-width: 767px) {
+    .headshot_container {
+        display: flex !important;
+        align-items: center;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .external_link_btn > i {
+        margin: 0 !important;
+    }
+
+    .external_link_btn > span {
+        display: none;
+    }
 }

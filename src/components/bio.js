@@ -43,6 +43,7 @@ export default props => {
     })();
     
     return (
+        <div className={styles.container}>
         <Container>
             <Grid stackable className={styles.grid}>
                 <Grid.Column width={8} className={styles.bio}>
@@ -50,26 +51,10 @@ export default props => {
                     <Header as="h1" className={styles.name}>Jingyun Yang</Header>
                     <div className={styles.abstract}>I am a second-year master student studying Machine Learning at Carnegie Mellon University (CMU). Since June 2020, I have been working with Prof. <a href="https://www.cs.cmu.edu/~katef/" className="inline_link">Katerina Fragkiadaki</a> on deep learning, computer vision, and robotics. Previously, I was in the <a href="https://clvrai.com" className="inline_link">USC Cognitive Learning for Vision and Robotics Lab (CLVR)</a> advised by Prof. <a href="https://viterbi-web.usc.edu/~limjj/" className="inline_link">Joseph J. Lim</a>.</div>
                     <div className={styles.external_links}>
-                        <Popup inverted tiny offset='0, 15px'
-                            trigger={<a href="/resume.pdf"><Button basic circular color='black' icon='file' className={styles.external_link_btn} /></a>}
-                            content='Resume'
-                            position='top center'
-                        />
-                        <Popup inverted tiny offset='0, 15px'
-                            trigger={<a href="https://git.io/yjy"><Button basic circular color='black' icon='github' className={styles.external_link_btn} /></a>}
-                            content='Github'
-                            position='top center'
-                        />
-                        <Popup inverted tiny offset='0, 15px'
-                            trigger={<a href="https://www.linkedin.com/in/yjy0625"><Button basic circular color='black' icon='linkedin' className={styles.external_link_btn} /></a>}
-                            content='LinkedIn'
-                            position='top center'
-                        />
-                        <Popup inverted tiny offset='0, 15px'
-                            trigger={<a href="https://scholar.google.com/citations?hl=en&user=7XBAa2QAAAAJ"><Button basic circular color='black' icon='graduation' className={styles.external_link_btn} /></a>}
-                            content='Google Scholar'
-                            position='top center'
-                        />
+                        <a href="/resume.pdf"><Button className={styles.external_link_btn}><i aria-hidden="true" className="file alternate icon"></i><span> Resume</span></Button></a>
+                        <a href="https://git.io/yjy"><Button className={styles.external_link_btn}><i aria-hidden="true" className="github icon"></i><span> Github</span></Button></a>
+                        <a href="https://www.linkedin.com/in/yjy0625"><Button className={styles.external_link_btn}><i aria-hidden="true" className="linkedin icon"></i><span> LinkedIn</span></Button></a>
+                        <a href="https://scholar.google.com/citations?hl=en&user=7XBAa2QAAAAJ"><Button className={styles.external_link_btn}><i aria-hidden="true" className="graduation icon"></i><span> Scholar</span></Button></a>
                     </div>
                 </Grid.Column>
                 <Grid.Column width={8} className={styles.headshot_container}>
@@ -77,6 +62,7 @@ export default props => {
                 </Grid.Column>
             </Grid>
         </Container>
+        </div>
     )
 
 }
