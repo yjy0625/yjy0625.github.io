@@ -18,11 +18,10 @@
 
 ### Citations
 ```
-@inproceedings{
-  yang2021viptl,
-  title = {Learning Periodic Tasks from Human Demonstrations},
-  author = {Yang, Jingyun and Zhang, Junwu and Settle, Connor and Rai, Akshara and Antonova, Rika and Bohg, Jeannette},
-  year = {2021},
-  url={https://yjy0625.github.io/publications/viptl_icra2022.pdf},
+@article{yang2021viptl,
+    title={Learning Periodic Tasks from Human Demonstrations},
+    author={Jingyun Yang and Junwu Zhang and Connor Settle and Akshara Rai and Rika Antonova and Jeannette Bohg},
+    journal={arXiv},
+    year={2021}
 }
 ```
