@@ -13,6 +13,10 @@
         {
             "name": "Website",
             "url": "/projects/viptl/"
+        },
+        {
+            "name": "Arxiv",
+            "url": "https://arxiv.org/abs/2109.14078"
         }
     ],
     "abstract": "We develop a method for learning periodic tasks from visual demonstrations. The core idea is to leverage periodicity in the policy structure to model periodic aspects of the tasks. We use active learning to optimize parameters of rhythmic dynamic movement primitives (rDMPs) and propose an objective to maximize the similarity between the motion of objects manipulated by the robot and the desired motion in human video demonstrations. We present simulation and hardware experiments on manipulation tasks with deformable and granular objects to validate our approach."
