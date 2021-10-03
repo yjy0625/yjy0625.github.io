@@ -55,6 +55,7 @@ export default props => {
                         <a href="https://git.io/yjy"><Button className={styles.external_link_btn}><i aria-hidden="true" className="github icon"></i><span> Github</span></Button></a>
                         <a href="https://www.linkedin.com/in/yjy0625"><Button className={styles.external_link_btn}><i aria-hidden="true" className="linkedin icon"></i><span> LinkedIn</span></Button></a>
                         <a href="https://scholar.google.com/citations?hl=en&user=7XBAa2QAAAAJ"><Button className={styles.external_link_btn}><i aria-hidden="true" className="graduation icon"></i><span> Scholar</span></Button></a>
+                        <a href="mailto:jingyuny@cmu.edu"><Button className={styles.external_link_btn}><i aria-hidden="true" className="mail icon"></i><span> Contact</span></Button></a>
                     </div>
                 </Grid.Column>
                 <Grid.Column width={8} className={styles.headshot_container}>
