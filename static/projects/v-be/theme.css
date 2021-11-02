@@ -18,6 +18,7 @@ p {
 
 #markdown-body > hr:first-of-type {
     margin-top: 0;
+    opacity: 0;
 }
 
 .hd-container {
