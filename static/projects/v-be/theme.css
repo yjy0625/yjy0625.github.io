@@ -19,6 +19,7 @@ p {
 #markdown-body > hr:first-of-type {
     margin-top: 0;
     opacity: 0;
+    padding-bottom: 30px;
 }
 
 .hd-container {
@@ -278,4 +279,9 @@ div.method-name {
 
 .slick-active button {
     color: #4285f4;
+}
+
+.w1-col > img {
+    margin-top: 24px !important;
+    margin-bottom: 24px !important;
 }
