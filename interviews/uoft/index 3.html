@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Materials for Jingyun Yang's U of T Interview</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="scribbler-global.css">
+    <link rel="stylesheet" href="scribbler-index.css">
+    <link rel="author" href="humans.txt">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94084189-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-94084189-2');
+    </script>
+  </head>
+  <body>
+    <div class="doc__bg"></div>
+    <div class="wrapper">
+      <article class="doc__content">
+        <h2 class="section__title">Materials for Jingyun Yang's U of T Interview</h2>
+        <section class="js-section">
+          <h3 class="section__title">Favorite Papers</h3>
+          <p><a href="https://arxiv.org/abs/1710.01813" class="link">Neural Task Programming</a>: Many tasks people routinely perform in their everyday lives are long-horizon and modular. For example, a cup sorting task can be decomposed to a sequence of rearranging actions; each rearranging action can be further decomposed to picking and placing manipulation skills. This paper is one of the first works I know of that explores how an autonomous agent can represent the multiple layers of abstractions in tasks like the example above and make use of this decomposition to achieve generalization beyond training time tasks. Another aspect of NTP that I like is symbolic representations for robot learning.</p>
+          <p><a href="https://arxiv.org/abs/1912.01603" class="link">Dream to Control</a>: This is a very beautiful work that seamlessly combines dynamics learning and policy learning. I like a lot how the work uses the latent world model to imagine trajectories and use the imagined trajectories to update the policy and value functions. This work inspired a series of later works on discrete world models, exploration works based on world models.</p>
+          <p><a href="https://arxiv.org/abs/1906.04161" class="link">Self-Supervised Exploration via Disagreement</a>: This work proposes a very interesting and effective idea for self-supervised exploration. The paper formulates the intrinsic reward as the disagreement of the outputs of multiple forward models trained as an ensemble. This formulation not only motivates the agent explore actions that the dynamics models are not certain about, but also solves the stochastic dynamics problem that made previous formulations of intrinsic motivation get stuck. This is the work that made me very excited about intrinsically motivated RL and it seems that this work indeed inspired a lot of later works in exploration as well (e.g. Plan2Explore, LEXA).</p>
+          <p><a href="https://arxiv.org/abs/1903.01973" class="link">Learning Latent Plans from Play</a>: Before the advent of this paper, existing works in LfD often make use of data collection procedures that stand at two ends of a spectrum: (1) expert demonstrations are diverse but costly to collect; (2) scripted demonstrations are cheap but not diverse enough. This paper is significant as it proposes the concept of play data, a set of self-guided, objective-free, and diverse demonstration collected via teleoperation. This form of demonstration collection enjoys the benefits of being both cheap and diverse. The paper also proposes a method that learns goal-conditioned policies from the play data.</p>
+          <p><a href="https://arxiv.org/abs/1812.00568" class="link">Visual Foresight</a>: This paper presents a pretty comprehensive summary about visual MPC at the time when it was published. I like how the work motivates visual MPC via the problem of control by prediction and covers various useful topics related to MPC such as the architecture of the dynamics model used, selection of the cost function, and several tricks to improve the CEM method used for planning. I find myself coming back to this paper a lot when I work on model-based RL related topics, and I believe that others might have been benefited from this work in similar ways as well.</p>
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Presentation Slides</h3>
+          <p><a href="https://drive.google.com/file/d/1OhSNKfRYnxDIPJZGi_4DIt07rSpdiKDA/view?usp=sharing" class="link">Slides for the "Learning Periodic Tasks from Human Demonstrations" Paper</a> -- I used this slide deck for a presentation in a FAIR meeting on 10/1/2021. File in Keynote format.</p>
+          <p><a href="https://drive.google.com/file/d/1lesicXtH7mK_HOiNcZ5jlhER58KdTZvB/view?usp=sharing" class="link">Slides for the "Visually-grounded Library of Behaviors" Paper</a> -- I used this slide deck to explain my project during the CoRL 2021 poster session. File in Keynote format.</p>
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Code Samples</h3>
+          <p><a href="https://drive.google.com/file/d/1CYhp6mXdkmONIE_SbOA0zXLBCzKxS7Zs/view?usp=sharing" class="link">[Link]</a> Source code for the ViPTL paper (in submission to ICRA 2022)</p>
+          <p><a href="https://drive.google.com/file/d/19_-6oehwgJUqcWOp0bOEhlG0iZMVhZRA/view?usp=sharing" class="link">[Link]</a> An assignment where I implemented linkage-based clustering</p>
+          <p><a href="https://drive.google.com/file/d/17ZKMnJm2ariRH4RErUmkMXjAy_VOaDyT/view?usp=sharing" class="link">[Link]</a> An assignment where I implemented decision tree learning</p>
+          <p><a href="https://github.com/yjy0625/10718-fall-2020" class="link">[Link]</a> An assignment where I wrote some data retrieval code</p>
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Proofs</h3>
+          <p><a href="https://www.overleaf.com/read/rcsbckqvmzvk" class="link">[Link]</a> A homework for the convex optimization course I took at CMU.</p>
+          <p><a href="https://www.overleaf.com/read/ppdvmfvqscbx" class="link">[Link]</a> A homework for the advanced machine learning course I took at CMU.</p>
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Research Overview Slides</h3>
+          <p><a href="https://yjy0625.github.io/interviews/uoft/overview_of_research.pdf" class="link">[Link]</a> Slide deck in PDF format.</p>
+        </section>
+      </article>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
