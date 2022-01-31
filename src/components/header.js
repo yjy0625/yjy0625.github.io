@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 import { Menu, Container } from "semantic-ui-react"
-import styles from "./header.module.css"
+import * as styles from "./header.module.css"
 import Icon from "../data/images/icon.png"
 
-export default props => {
+const App = props => {
 
     return (
         <div className={styles.container}>
@@ -32,4 +32,6 @@ export default props => {
         </div>
     )
 
-}
+};
+
+export default App;

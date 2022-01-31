@@ -33,6 +33,12 @@ module.exports = {
                 trackingId: "UA-94084189-2",
                 head: false
             }
+        },
+        {
+            resolve: `gatsby-plugin-google-tagmanager`,
+            options: {
+                id: 'GTM-WL8ZDNF'
+            },
         }
     ],
 }

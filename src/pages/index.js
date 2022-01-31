@@ -6,7 +6,8 @@ import Bio from "../components/bio"
 import Research from "../components/research"
 import "semantic-ui-less/semantic.less"
 
-const IndexPage = () => (
+const IndexPage = () => {
+    return (
     <div>
         <Helmet>
             <meta charSet="utf-8" />
@@ -19,6 +20,7 @@ const IndexPage = () => (
         <Bio />
 		<Research />
     </div> 
-)
+    );
+}
 
 export default IndexPage;

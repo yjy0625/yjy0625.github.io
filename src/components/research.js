@@ -2,9 +2,9 @@ import React from "react"
 import { Container, Header, Item, Card, Image } from "semantic-ui-react"
 import { useStaticQuery, graphql } from "gatsby"
 import Icon from "../data/images/icon.png"
-import styles from "./research.module.css"
+import * as styles from "./research.module.css"
 
-export default props => {
+const App = props => {
 
     const data = useStaticQuery(graphql`
         query {
@@ -95,7 +95,7 @@ export default props => {
 
         return (
             <Item>
-                <Item.Image src={node.image} alt="teaser_image" className={styles.teaser} />
+                <Item.Image src={node.image} alt="teaser_image" />
                 <Item.Content>
                     <Item.Header>{node.title}</Item.Header>
                     <Item.Description>
@@ -185,12 +185,13 @@ export default props => {
             </div>
             <div className={styles.wrapper_small_pad}>
                 <Container>
-                    <Image src={Icon} size='mini' centered className={styles.footer_icon} />
+                    <Image src={Icon} size='mini' centered />
                     {footerText}
                 </Container>
             </div>
         </div>
     )
 
-}
+};
 
+export default App;
