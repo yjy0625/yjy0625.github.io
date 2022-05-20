@@ -18,10 +18,10 @@
 
 ### Citations
 ```
-@article{yang2021viptl,
+@article{yang2022viptl,
     title={Learning Periodic Tasks from Human Demonstrations},
     author={Jingyun Yang and Junwu Zhang and Connor Settle and Akshara Rai and Rika Antonova and Jeannette Bohg},
-    journal={arXiv},
-    year={2021}
+    journal={IEEE International Conference on Robotics and Automation (ICRA)},
+    year={2022}
 }
 ```
