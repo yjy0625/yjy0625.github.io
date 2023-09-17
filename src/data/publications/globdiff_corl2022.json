@@ -1,0 +1,23 @@
+{
+    "title": "Rethinking Optimization with Differentiable Simulation from a Global Perspective",
+    "authors": ["Rika Antonova*", "Jingyun Yang*", "Krishna Murthy Jatavallabhula", "Jeannette Bohg"],
+    "image": "/images/globdiff.gif",
+    "venue": "Conference on Robot Learning (CoRL)",
+    "year": 2022,
+    "month": 11,
+    "links": [
+        {
+            "name": "Paper",
+            "url": "/publications/globdiff.pdf"
+        },
+        {
+            "name": "Website",
+            "url": "/projects/globdiff/"
+        },
+        {
+            "name": "Arxiv",
+            "url": "https://arxiv.org/abs/2207.00167"
+        }
+    ],
+    "abstract": "We study the challenges that differentiable simulation presents when it is not feasible to expect that a single descent reaches a global optimum, which is often a problem in contact-rich scenarios. In dynamic environments, we find that differentiable simulators produce rugged landscapes with nonetheless useful gradients in some parts of the space. We propose a method that combines Bayesian optimization with semi-local 'leaps' to obtain a global search method that can use gradients effectively, while also maintaining robust performance in regions with noisy gradients."
+}

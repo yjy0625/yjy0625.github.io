@@ -1,0 +1,15 @@
+{
+    "title": "EquivAct: SIM(3)-Equivariant Visuomotor Policies beyond Rigid Object Manipulation",
+    "authors": ["Jingyun Yang", "Congyue Deng", "Jimmy Wu", "Rika Antonova", "Leonidas Guibas", "Jeannette Bohg"],
+    "image": "/images/equivact.gif",
+    "venue": "Preprint",
+    "year": 2023,
+    "month": 12,
+    "links": [
+        {
+            "name": "Paper",
+            "url": "/publications/equivact.pdf"
+        }
+    ],
+    "abstract": "We propose a method that utilizes SIM(3)-equivariant network structures that guarantee generalization across all possible object translations, rotations, and scales by construction. Our method can successfully generalize from a small set of human demonstrations in table-top setups to diverse target scenarios in challenging real world manipulation tasks involving deformable and articulated objects."
+}

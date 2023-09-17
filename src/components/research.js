@@ -167,14 +167,6 @@ const App = props => {
                     </Item.Group>
                 </Container>
             </div>
-            <div className={styles.wrapper_white}>
-                <Container>
-                    <Header as="h1" className={styles.section_title}>Awards and Honors</Header>
-                    <Card.Group centered>
-                        { renderedAwards }
-                    </Card.Group>
-                </Container>
-            </div>
             <div className={styles.wrapper}>
                 <Container>
                     <Header as="h1" className={styles.section_title}>Teaching</Header>

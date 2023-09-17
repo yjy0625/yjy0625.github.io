@@ -49,7 +49,7 @@ const App = props => {
                 <Grid.Column width={8} className={styles.bio}>
                     <Header as="h3" className={styles.beforename}>{ greetingMsg } My name is</Header>
                     <Header as="h1" className={styles.name}>Jingyun Yang</Header>
-                    <div className={styles.abstract}>I am a first-year PhD student at <a href="https://www.stanford.edu/" className="inline_link">Stanford University</a>. I am fortunate to be advised by Prof. <a href="https://web.stanford.edu/~bohg/" className="inline_link">Jeannette Bohg</a>. My research focuses on the intersection of robotics, machine learning, and vision.</div>
+                    <div className={styles.abstract}>I am a second-year PhD student at <a href="https://www.stanford.edu/" className="inline_link">Stanford University</a>. I am fortunate to be advised by Prof. <a href="https://web.stanford.edu/~bohg/" className="inline_link">Jeannette Bohg</a>. My research focuses on the intersection of robotics, machine learning, and vision.</div>
                     <div className={styles.external_links}>
                         <a href="/resume.pdf"><Button className={styles.external_link_btn}><i aria-hidden="true" className="file alternate icon" aria-label="Resume"></i><span> Resume</span></Button></a>
                         <a href="https://git.io/yjy"><Button className={styles.external_link_btn}><i aria-hidden="true" className="github icon" aria-label="Github"></i><span> Github</span></Button></a>
