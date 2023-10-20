@@ -9,6 +9,10 @@
         {
             "name": "Paper",
             "url": "/publications/equivact.pdf"
+        },
+        {
+            "name": "Website",
+            "url": "https://equivact.github.io/"
         }
     ],
     "abstract": "We propose a method that utilizes SIM(3)-equivariant network structures that guarantee generalization across all possible object translations, rotations, and scales by construction. Our method can successfully generalize from a small set of human demonstrations in table-top setups to diverse target scenarios in challenging real world manipulation tasks involving deformable and articulated objects."

@@ -9,6 +9,10 @@
         {
             "name": "Paper",
             "url": "/publications/robofume.pdf"
+        },
+        {
+            "name": "Website",
+            "url": "https://robofume.github.io/"
         }
     ],
     "abstract": "We propose a system that enables autonomous and efficient real-world robot learning. Our insights are to utilize calibrated offline RL techniques to ensure efficient online fine-tuning of a pre-trained policy in the presence of distribution shifts and leverage pre-trained vision language models (VLMs) to build a robust reward classifier for autonomously providing reward signals during the online fine-tuning process."
