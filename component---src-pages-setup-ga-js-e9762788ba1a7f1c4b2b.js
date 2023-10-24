@@ -1,0 +1,2 @@
+(self.webpackChunkyjy0625_github_io=self.webpackChunkyjy0625_github_io||[]).push([[40],{7188:function(){function n(){dataLayer.push(arguments)}"undefined"!=typeof window&&(window.dataLayer=window.dataLayer||[]),n("js",new Date),n("config","G-XLH6J2S999")}}]);
+//# sourceMappingURL=component---src-pages-setup-ga-js-e9762788ba1a7f1c4b2b.js.map
