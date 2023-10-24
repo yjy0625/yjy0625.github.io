@@ -28,10 +28,15 @@ module.exports = {
             }
         },
         {
-            resolve: `gatsby-plugin-google-tagmanager`,
+            resolve: `gatsby-plugin-google-gtag`,
             options: {
-                id: 'GTM-WL8ZDNF'
-            },
+                trackingIds: [
+                    "G-XLH6J2S999"
+                ],
+                pluginConfig: {
+                    head: true
+                }
+            }
         }
     ],
 }
