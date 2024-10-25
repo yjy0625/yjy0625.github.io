@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <title>V-BEs</title>
+
+    <meta charset="UTF-8">
+    <meta property="og:title" content="V-BEs">
+    <meta property="og:description" content="Yang et al. Visually-Grounded Library of Behaviors for Learning to Manipulate Diverse Objects across Diverse Configurations and Views">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:type" content="website">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Showdown -->
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"></script>
+    <script src="js/figure-extension.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- WAVE -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+
+    <link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.15.4/video.min.js"></script>
+
+    <!-- MathJAX -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+        
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XLH6J2S999"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XLH6J2S999');
+    </script>
+
+    <link rel="stylesheet" href="theme.css">
+
+
+    <script>
+        const classMap = {
+            ul: 'browser-default'
+        }
+
+        const bindings = Object.keys(classMap)
+        .map(key => ({
+            type: 'output',
+            regex: new RegExp(`<${key}(.*)>`, 'g'),
+            replace: `<${key} class="${classMap[key]}" $1>`
+        }));
+
+        const converter = new showdown.Converter({
+            extensions: [bindings, 'figure']
+        });
+        converter.setOption('parseImgDimensions', true);
+        converter.setOption('tables', true);
+        converter.setFlavor('github');
+
+        $("#markdown-body").ready(() => {
+            $.get( "content.md", (data) => {
+                const content_html = converter.makeHtml(data);
+                $("#markdown-body").html(content_html);
+                hljs.initHighlighting();
+            });
+        })
+
+    </script>
+
+    <body>
+        <!-- Header -->
+        <!-- Wide screen -->
+        <header class="hd-container w3-container hide-narrow content-center">
+            <div class="w3-cell-row" style="width: 90%; margin: auto; max-width: 1600px; margin-top: 80px; margin-bottom: 40px">
+                <div class="w3-container w3-cell w3-cell-middle">
+                    <div class="title">Visually-Grounded Library of Behaviors for <br/> Manipulating Diverse Objects across <br/> Diverse Configurations and Views</div>
+                    <!-- Author -->
+                <div class="w3-row-padding">
+                    <div class="authorship-container">
+                        <ul class="horizontal-list">
+                            <li><a href="https://yjy0625.github.io" target="_blank"><i class="far fa-user"></i> Jingyun Yang*</a></li>
+                            <li><a href="https://sfish0101.bitbucket.io/" target="_blank"><i class="far fa-user"></i> Hsiao-Yu Tung*</a></li>
+                            <li><a href="https://yunchuzhang.github.io/" target="_blank"><i class="far fa-user"></i> Yunchu Zhang*</a></li>
+                            <li><a href="https://www.ri.cmu.edu/ri-people/gaurav-pathak/" target="_blank"><i class="far fa-user"></i> Gaurav Pathak</a></li>
+                            <li><a href="https://ashwinipokle.github.io/" target="_blank"><i class="far fa-user"></i> Ashwini Pokle</a></li>
+                            <li><a href="http://www.cs.cmu.edu/~cga/" target="_blank"><i class="far fa-user"></i> Christopher G Atkeson</a></li>
+                            <li><a href="https://www.cs.cmu.edu/~katef/" target="_blank"><i class="far fa-user"></i> Katerina Fragkiadaki</a></li>
+                        </ul>
+                        <ul class="horizontal-list">
+                            <li><a href="https://www.cmu.edu/" target="_blank"><i class="fas fa-university"></i> Carnegie Mellon University</a></li>
+                        </ul>
+                    </div>
+                    <div class="w3-card-4 w3-round-large furniture-grid" style="width: 20%; height: 20%;">
+                            <img width="100%" height="100%" src="img/teaser.gif">
+                    </div>
+
+                    </div>
+                    <div class="excerpt w3-padding-16" style="width: 80%; max-width: 700px; margin: auto;">
+                      We propose a method for manipulating diverse objects across a wide range of initial and goal configurations and camera placements. We disentangle the standard image-to-action mapping into two separate modules: (1) a behavior selector which conditions on intrinsic and semantically-rich object appearance features to select the behaviors that can successfully perform the desired tasks on the object in hand, and (2) a library of behaviors each of which conditions on extrinsic and abstract object properties to predict actions to execute over time. Our framework outperforms various learning and non-learning based baselines in both simulated and real robot tasks.
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Narrow screen -->
+        <header class="hd-container w3-container hide-wide">
+            <div class="w3-row-padding w3-center w3-padding-24">
+                <span class="title">Visually-Grounded Library of Behaviors for <br/> Manipulating Diverse Objects across <br/> Diverse Configurations and Views</span>
+            </div>
+            <div class="w3-row-padding">
+                <!-- Author -->
+                <div class="authorship-container">
+                    <ul class="horizontal-list">
+                        <li><a href="https://yjy0625.github.io" target="_blank"><i class="far fa-user"></i> Jingyun Yang*</a></li>
+                        <li><a href="https://sfish0101.bitbucket.io/" target="_blank"><i class="far fa-user"></i> Hsiao-Yu Tung*</a></li>
+                        <li><a href="https://yunchuzhang.github.io/" target="_blank"><i class="far fa-user"></i> Yunchu Zhang*</a></li>
+                        <li><a href="https://www.ri.cmu.edu/ri-people/gaurav-pathak/" target="_blank"><i class="far fa-user"></i> Gaurav Pathak</a></li>
+                        <li><a href="https://ashwinipokle.github.io/" target="_blank"><i class="far fa-user"></i> Ashwini Pokle</a></li>
+                        <li><a href="http://www.cs.cmu.edu/~cga/" target="_blank"><i class="far fa-user"></i> Christopher G Atkeson</a></li>
+                        <li><a href="https://www.cs.cmu.edu/~katef/" target="_blank"><i class="far fa-user"></i> Katerina Fragkiadaki</a></li>
+                    </ul>
+                    <span class="school"><a href="https://www.cmu.edu/" target="_blank"><i class="fas fa-university"></i> Carnegie Mellon University</a></span>
+                </div>
+
+            </div>
+            <div class="w3-row-padding w3-center w3-padding-16">
+                <div class="w3-card-4 w3-round-large furniture-grid" style="width: 80%; height: 80%; max-width: 300px; max-height: 300px;">
+                        <img width="100%" height="100%" src="img/teaser.gif">
+                </div>
+            </div>
+            <div class="w3-row-padding"><hr></div>
+            <div class="w3-row-padding w3-padding-16">
+                <div class="excerpt">
+                  We propose a method for manipulating diverse objects across a wide range of initial and goal configurations and camera placements. We disentangle the standard image-to-action mapping into two separate modules: (1) a behavior selector which conditions on intrinsic and semantically-rich object appearance features to select the behaviors that can successfully perform the desired tasks on the object in hand, and (2) a library of behaviors each of which conditions on extrinsic and abstract object properties to predict actions to execute over time. Our framework outperforms various learning and non-learning based baselines in both simulated and real robot tasks.
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Body -->
+        <div class="main-body">
+            <div class="w3-container">
+                <div class="w3-content" style="max-width:1000px">
+
+                    <!-- Links -->
+                    <div class="link-container">
+                        <ul class="horizontal-list">
+                            <li><button class="w3-button waves-effect waves-light w3-card-4 grey lighten-2 w3-round-large" onclick="location.href='https://yjy0625.github.io/publications/v-be_corl2021.pdf'" type="button"><i class="fas fa-file-alt"></i> Paper</button></li>
+                            <li><button class="w3-button waves-effect waves-light w3-card-4 grey lighten-2 w3-round-large" onclick="location.href='https://yjy0625.github.io/projects/v-be/supp/v-be_supp.pdf'" type="button"><i class="fas fa-file-alt"></i> Supplementary Material</button></li>
+                        </ul>
+                    </div>
+
+                    <!-- Markdown Body -->
+                    <div id="markdown-body"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="w3-center w3-light-grey w3-padding-32 w3-small">
+            <p style="color: grey">This work is supported by Sony AI, NSF award No 1849287, DARPA Machine Common Sense, an Amazon faculty award, and an NSF CAREER award.</p>
+            <p style="color: grey">The source code for this page is adapted from <a target="_blank" href="https://clvrai.github.io/coordination/">here</a>.</p>
+        </footer>
+
+    </body>
+</html>

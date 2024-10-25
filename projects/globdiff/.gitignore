@@ -1,0 +1,5 @@
+**.swp
+result*/
+saved_rollouts*/
+venv/
+wandb/
