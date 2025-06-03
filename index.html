@@ -1,51 +1,538 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jingyun Yang's Homepage</title>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-XLH6J2S999"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-XLH6J2S999');
-	</script>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
-            text-align: center;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  <title>Jingyun Yang – PhD Student</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif']
+          }
         }
-        .container {
-            padding: 20px;
-        }
-        a {
-            color: #0073e6;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+      }
+    }
+  </script>
 </head>
-<body>
-    <div class="container">
-        <h1>Jingyun Yang.</h1>
-        <p>I'm a third-year PhD student at Stanford University advised by Jeannette Bohg.</p>
-        <p>Please check out my latest works and professional updates here:
-            <a href="https://scholar.google.com/citations?user=7XBAa2QAAAAJ&hl=en" target="_blank">Google Scholar</a>, 
-            <a href="https://x.com/yjy0625" target="_blank">Twitter</a>,
-            <a href="https://www.linkedin.com/in/yjy0625/" target="_blank">LinkedIn</a>.
+<body class="bg-white text-gray-900 font-sans antialiased">
+  <!-- Hero Section -->
+  <section class="relative py-36 bg-abstract text-white">
+    <div class="absolute inset-0 bg-black"></div>
+    <div class="relative z-10 max-w-5xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center h-full">
+      <!-- Left: Text Content -->
+      <div class="md:w-2/3 space-y-4">
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight pb-5">
+          <span class="text-white">Jingyun Yang</span>
+        </h1>
+        <p class="text-lg md:text-xl pb-1">
+          I'm a third-year PhD student in the Department of Computer Science at 
+          <a href="https://stanford.edu" class="underline text-white hover:text-gray-300">Stanford University</a>. My research focuses on developing generalizable, data-efficient, and deployable methods for robot policy learning. I am advised by 
+          <a href="https://web.stanford.edu/~bohg/" class="underline text-white hover:text-gray-300">Jeannette Bohg</a> as part of the 
+          <a href="https://iprl.stanford.edu/" class="underline text-white hover:text-gray-300">Interactive Perception and Robot Learning Lab</a>.  
         </p>
+        <p class="text-lg md:text-xl">
+          Previously, I received my Master's degree in Machine Learning at 
+          <a href="https://cmu.edu" class="underline text-white hover:text-gray-300">CMU</a>, where I was co-advised by 
+          <a href="https://www.cs.cmu.edu/~katef/" class="underline text-white hover:text-gray-300">Katerina Fragkiadaki</a> and 
+          <a href="http://www.cs.cmu.edu/~cga/" class="underline text-white hover:text-gray-300">Christopher G. Atkeson</a>. Before that, I was an undergraduate student at 
+          <a href="https://usc.edu" class="underline text-white hover:text-gray-300">USC</a>, where I worked with 
+          <a href="https://clvrai.com/web_lim/" class="underline text-white hover:text-gray-300">Joseph Lim</a>.
+        </p>
+        <!-- Social Links -->
+        <div class="flex space-x-4 mt-4 pt-5">
+          <a href="https://twitter.com/yjy0625" target="_blank" class="bg-gray-900 text-white rounded-md px-4 py-2 hover:bg-gray-800 transition-colors">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/in/yjy0625" target="_blank" class="bg-gray-900 text-white rounded-md px-4 py-2 hover:bg-gray-800 transition-colors">
+            LinkedIn
+          </a>
+          <a href="https://scholar.google.com/citations?user=7XBAa2QAAAAJ" target="_blank" class="bg-gray-900 text-white rounded-md px-4 py-2 hover:bg-gray-800 transition-colors">
+            Google Scholar
+          </a>
+          <a href="https://github.com/yjy0625" target="_blank" class="bg-gray-900 text-white rounded-md px-4 py-2 hover:bg-gray-800 transition-colors">
+            GitHub
+          </a>
+          <a href="mailto:jingyuny@stanford.edu" class="bg-gray-900 text-white rounded-md px-4 py-2 hover:bg-gray-800 transition-colors">
+            Email
+          </a>
+        </div>
+      </div>
+      <!-- Right: Headshot Image -->
+      <div class="md:w-1/3 mt-6 p-6 md:mt-0 flex justify-center">
+        <img
+          src="images/headshot.jpg"
+          alt="Headshot of Jingyun Yang"
+          class="w-full h-full rounded-xl object-cover border-4 border-white"
+        />
+      </div>
     </div>
+  </section>
+
+  <!-- Publications Section -->
+  <section class="max-w-5xl mx-auto px-6 py-24 mb-24">
+    <h2 class="text-5xl font-bold text-gray-900 mb-5 mt-12">Publications</h2>
+    <button onclick="toggleAllSummaries()" class="mb-12 bg-black text-white text-sm rounded-md px-3 py-2 hover:bg-gray-800 transition-colors">
+      Show Paper Summaries
+    </button>
+    <div class="space-y-12">
+
+      <!-- Publication: Mobi-π -->
+      <div class="flex flex-col md:flex-row md:items-start">
+        <div class="md:w-1/4 mb-4 md:mb-0">
+          <img
+            src="./images/mobipi.png"
+            alt="Mobi-pi teaser"
+            class="w-full rounded-lg shadow-lg"
+          />
+        </div>
+        <div class="md:w-3/4 md:pl-8 space-y-2">
+          <p class="text-2xl font-semibold text-gray-900">
+            <a href="https://mobipi.github.io/pdf/mobipi.pdf" class="hover:underline text-gray-900">Mobi-π: Mobilizing Your Robot Learning Policy</a>
+          </p>
+          <p class="text-gray-600">
+            <span class="font-bold text-black">Jingyun Yang</span>,
+            <a href="https://scholar.google.com/citations?user=04Ta98kAAAAJ&hl=en" class="text-gray-900 hover:text-gray-600">Isabella Huang*</a>,
+            <a href="https://www.linkedin.com/in/brandon-t-vu/" class="text-gray-900 hover:text-gray-600">Brandon Vu*</a>,
+            <a href="https://www.tri.global/about-us/max-bajracharya" class="text-gray-900 hover:text-gray-600">Max Bajracharya</a>,
+            <a href="https://contactrika.github.io/" class="text-gray-900 hover:text-gray-600">Rika Antonova</a>,
+            <a href="https://web.stanford.edu/~bohg/" class="text-gray-900 hover:text-gray-600">Jeannette Bohg</a>
+          </p>
+          <p class="text-gray-600">
+            Preprint
+          </p>
+          <div class="mt-1 flex space-x-4">
+            <a href="https://mobipi.github.io/pdf/mobipi.pdf" class="text-gray-900 hover:underline">Paper</a>
+            <a href="https://mobipi.github.io/" class="text-gray-900 hover:underline">Website</a>
+            <a href="https://arxiv.org/abs/2505.23692" class="text-gray-900 hover:underline">Arxiv</a>
+          </div>
+          <div class="paper-summary hidden mt-2 text-gray-700 leading-relaxed">
+            <p>
+              We propose novel metrics, tasks, visualization tools and methods for “policy mobilization,” the problem of taking a non-mobile manipulation policy and finding a proper initial robot pose from which to execute it on a mobile platform.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication: EquiBot -->
+      <div class="flex flex-col md:flex-row md:items-start">
+        <div class="md:w-1/4 mb-4 md:mb-0">
+          <img
+            src="./images/equibot_corl2024.png"
+            alt="EquiBot teaser"
+            class="w-full rounded-lg shadow-lg"
+          />
+        </div>
+        <div class="md:w-3/4 md:pl-8 space-y-2">
+          <p class="text-2xl font-semibold text-gray-900">
+            <a href="./publications/equibot_corl2024.pdf" class="hover:underline text-gray-900">EquiBot: SIM(3)-Equivariant Diffusion Policy for Generalizable and Data Efficient Learning</a>
+          </p>
+          <p class="text-gray-600">
+            <span class="font-bold text-black">Jingyun Yang*</span>,
+            <a href="https://zi-ang-cao.github.io/" class="text-gray-900 hover:text-gray-600">Zi-ang Cao*</a>,
+            <a href="https://cs.stanford.edu/~congyue/" class="text-gray-900 hover:text-gray-600">Congyue Deng</a>,
+            <a href="https://contactrika.github.io/" class="text-gray-900 hover:text-gray-600">Rika Antonova</a>,
+            <a href="https://shurans.github.io/" class="text-gray-900 hover:text-gray-600">Shuran Song</a>,
+            <a href="https://web.stanford.edu/~bohg/" class="text-gray-900 hover:text-gray-600">Jeannette Bohg</a>
+          </p>
+          <p class="text-gray-600">
+            CoRL 2024 <br/>
+            CoRL 2024 Workshop on Whole-body Control and Bimanual Manipulation, <span class="text-red-600 font-bold">Spotlight Presentation</span>
+          </p>
+          <div class="mt-1 flex space-x-4">
+            <a href="./publications/equibot_corl2024.pdf" class="text-gray-900 hover:underline">Paper</a>
+            <a href="https://equi-bot.github.io/" class="text-gray-900 hover:underline">Website</a>
+            <a href="https://arxiv.org/abs/2407.01479" class="text-gray-900 hover:underline">Arxiv</a>
+            <a href="https://github.com/yjy0625/equibot" class="text-gray-900 hover:underline">Code</a>
+          </div>
+          <div class="paper-summary hidden mt-2 text-gray-700 leading-relaxed">
+            <p>
+              We propose EquiBot, a robust, data-efficient, and generalizable approach for robot manipulation task learning. Our approach combines SIM(3)-equivariant neural network architectures with diffusion models. In the real world, with 10 variations of 6 mobile manipulation tasks, we show that our method can easily generalize to novel objects and scenes after learning from just 5 minutes of human demonstrations in each task.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication: Unpacking Failure Modes of Generative Policies -->
+      <div class="flex flex-col md:flex-row md:items-start">
+        <div class="md:w-1/4 mb-4 md:mb-0">
+          <img
+            src="./images/trak_corl2024.gif"
+            alt="Sentinel teaser"
+            class="w-full rounded-lg shadow-lg"
+          />
+        </div>
+        <div class="md:w-3/4 md:pl-8 space-y-2">
+          <p class="text-2xl font-semibold text-gray-900">
+            <a href="https://arxiv.org/pdf/2410.04640" class="hover:underline text-gray-900">Unpacking Failure Modes of Generative Policies: Runtime Monitoring of Consistency and Progress</a>
+          </p>
+          <p class="text-gray-600">
+            <a href="https://www.chrisagia.com/" class="text-gray-900 hover:text-gray-600">Christopher Agia</a>,
+            <a href="https://rohansinha.nl/" class="text-gray-900 hover:text-gray-600">Rohan Sinha</a>,
+            <span class="font-bold text-black">Jingyun Yang</span>,
+            <a href="https://zi-ang-cao.github.io/" class="text-gray-900 hover:text-gray-600">Zi-ang Cao</a>,
+            <a href="https://contactrika.github.io/" class="text-gray-900 hover:text-gray-600">Rika Antonova</a>,
+            <a href="https://stanfordasl.github.io/people/prof-marco-pavone/" class="text-gray-900 hover:text-gray-600">Marco Pavone</a>,
+            <a href="https://web.stanford.edu/~bohg/" class="text-gray-900 hover:text-gray-600">Jeannette Bohg</a>
+          </p>
+          <p class="text-gray-600">
+            CoRL 2024
+          </p>
+          <div class="mt-1 flex space-x-4">
+            <a href="https://arxiv.org/pdf/2410.04640" class="text-gray-900 hover:underline">Paper</a>
+            <a href="https://sites.google.com/stanford.edu/sentinel" class="text-gray-900 hover:underline">Website</a>
+            <a href="https://arxiv.org/abs/2410.04640" class="text-gray-900 hover:underline">Arxiv</a>
+            <a href="https://github.com/agiachris/sentinel" class="text-gray-900 hover:underline">Code</a>
+          </div>
+          <div class="paper-summary hidden mt-2 text-gray-700 leading-relaxed">
+            <p>
+              We propose Sentinel, a runtime monitoring framework that splits the detection of failures into two complementary categories: 1) Erratic failures, which we detect using statistical measures of temporal action consistency, and 2) task progression failures, where we use Vision Language Models (VLMs) to detect when the policy confidently and consistently takes actions that do not solve the task.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication: DROID -->
+      <div class="flex flex-col md:flex-row md:items-start">
+        <div class="md:w-1/4 mb-4 md:mb-0">
+          <img
+            src="./images/droid_rss2024.png"
+            alt="DROID teaser"
+            class="w-full rounded-lg shadow-lg"
+          />
+        </div>
+        <div class="md:w-3/4 md:pl-8 space-y-2">
+          <p class="text-2xl font-semibold text-gray-900">
+            <a href="https://arxiv.org/pdf/2403.12945" class="hover:underline text-gray-900">DROID: A Large-Scale In-the-Wild Robot Manipulation Dataset</a>
+          </p>
+          <p class="text-gray-600">
+            <a href="https://www.linkedin.com/in/alexander-khazatsky-b98841149/" class="text-gray-900 hover:text-gray-600">Alexander Khazatsky</a>,
+            <a href="https://kpertsch.github.io/" class="text-gray-900 hover:text-gray-600">Karl Pertsch</a>, et al.
+          </p>
+          <p class="text-gray-600">
+            RSS 2024
+          </p>
+          <div class="mt-1 flex space-x-4">
+            <a href="https://arxiv.org/pdf/2403.12945" class="text-gray-900 hover:underline">Paper</a>
+            <a href="https://droid-dataset.github.io/" class="text-gray-900 hover:underline">Website</a>
+            <a href="https://arxiv.org/abs/2403.12945" class="text-gray-900 hover:underline">Arxiv</a>
+            <a href="https://github.com/droid-dataset/droid" class="text-gray-900 hover:underline">Hardware Code</a>
+            <a href="https://github.com/droid-dataset/droid_policy_learning" class="text-gray-900 hover:underline">Policy Learning Code</a>
+          </div>
+          <div class="paper-summary hidden mt-2 text-gray-700 leading-relaxed">
+            <p>
+              We introduce DROID (Distributed Robot Interaction Dataset), a diverse robot manipulation dataset with 76k demonstration trajectories or 350h of interaction data, collected across 564 scenes and 86 tasks by 50 data collectors in North America, Asia, and Europe over the course of 12 months.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication: DROID -->
+      <div class="flex flex-col md:flex-row md:items-start">
+        <div class="md:w-1/4 mb-4 md:mb-0">
+          <img
+            src="./images/oxe_icra2023.png"
+            alt="Open-X Embodiment teaser"
+            class="w-full rounded-lg shadow-lg"
+          />
+        </div>
+        <div class="md:w-3/4 md:pl-8 space-y-2">
+          <p class="text-2xl font-semibold text-gray-900">
+            <a href="https://arxiv.org/pdf/2310.08864" class="hover:underline text-gray-900">Open X-Embodiment: Robotic Learning Datasets and RT-X Models</a>
+          </p>
+          <p class="text-gray-600">Open X-Embodiment Collaboration</p>
+          <p class="text-gray-600">
+            ICRA 2023, <span class="text-red-600 font-bold">Best Conference Paper Award</span>
+          </p>
+          <div class="mt-1 flex space-x-4">
+            <a href="https://arxiv.org/pdf/2310.08864" class="text-gray-900 hover:underline">Paper</a>
+            <a href="https://robotics-transformer-x.github.io/" class="text-gray-900 hover:underline">Website</a>
+            <a href="https://arxiv.org/abs/2310.08864" class="text-gray-900 hover:underline">Arxiv</a>
+            <a href="https://github.com/google-deepmind/open_x_embodiment" class="text-gray-900 hover:underline">Code</a>
+            <a href="https://docs.google.com/spreadsheets/d/1rPBD77tk60AEIGZrGSODwyyzs5FgCU9Uz3h-3_t2A9g/edit?gid=0#gid=0" class="text-gray-900 hover:underline">Data</a>
+          </div>
+          <div class="paper-summary hidden mt-2 text-gray-700 leading-relaxed">
+            <p>
+              We introduce the Open X-Embodiment Dataset, the largest open-source real robot dataset to date. It contains 1M+ real robot trajectories spanning 22 robot embodiments, from single robot arms to bi-manual robots and quadrupeds.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication: EquivAct -->
+      <div class="flex flex-col md:flex-row md:items-start">
+        <div class="md:w-1/4 mb-4 md:mb-0">
+          <img
+            src="./images/equivact_icra2024.gif"
+            alt="EquivAct teaser"
+            class="w-full rounded-lg shadow-lg"
+          />
+        </div>
+        <div class="md:w-3/4 md:pl-8 space-y-2">
+          <p class="text-2xl font-semibold text-gray-900">
+            <a href="./publications/equivact_icra2024.pdf" class="hover:underline text-gray-900">EquivAct: SIM(3)-Equivariant Visuomotor Policies beyond Rigid Object Manipulation</a>
+          </p>
+          <p class="text-gray-600">
+            <span class="font-bold text-black">Jingyun Yang*</span>,
+            <a href="https://cs.stanford.edu/~congyue/" class="text-gray-900 hover:text-gray-600">Congyue Deng*</a>,
+            <a href="https://jimmyyhwu.github.io/" class="text-gray-900 hover:text-gray-600">Jimmy Wu</a>,
+            <a href="https://contactrika.github.io/" class="text-gray-900 hover:text-gray-600">Rika Antonova</a>,
+            <a href="https://geometry.stanford.edu/member/guibas/" class="text-gray-900 hover:text-gray-600">Leonidas Guibas</a>,
+            <a href="https://web.stanford.edu/~bohg/" class="text-gray-900 hover:text-gray-600">Jeannette Bohg</a>
+          </p>
+          <p class="text-gray-600">
+            ICRA 2024
+          </p>
+          <div class="mt-1 flex space-x-4">
+            <a href="./publications/equivact_icra2024.pdf" class="text-gray-900 hover:underline">Paper</a>
+            <a href="https://equivact.github.io/" class="text-gray-900 hover:underline">Website</a>
+            <a href="https://arxiv.org/abs/2310.16050" class="text-gray-900 hover:underline">Arxiv</a>
+          </div>
+          <div class="paper-summary hidden mt-2 text-gray-700 leading-relaxed">
+            <p>
+              We propose a method that utilizes SIM(3)-equivariant network structures that guarantee generalization across all possible object translations, rotations, and scales by construction. Our method can successfully generalize from a small set of human demonstrations in table-top setups to diverse target scenarios in challenging real world manipulation tasks involving deformable and articulated objects.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication: RoboFume -->
+      <div class="flex flex-col md:flex-row md:items-start">
+        <div class="md:w-1/4 mb-4 md:mb-0">
+          <img
+            src="./images/robofume_icra2024.gif"
+            alt="RoboFume teaser"
+            class="w-full rounded-lg shadow-lg"
+          />
+        </div>
+        <div class="md:w-3/4 md:pl-8 space-y-2">
+          <p class="text-2xl font-semibold text-gray-900">
+            <a href="./publications/robofume_icra2024.pdf" class="hover:underline text-gray-900">Robot Fine-Tuning Made Easy: Pre-Training Rewards and Policies for Autonomous Real-World Reinforcement Learning</a>
+          </p>
+          <p class="text-gray-600">
+            <span class="font-bold text-black">Jingyun Yang*</span>,
+            <a href="https://profiles.stanford.edu/joel-sobol-mark" class="text-gray-900 hover:text-gray-600">Max Sobol Mark*</a>,
+            <a href="https://profiles.stanford.edu/240111" class="text-gray-900 hover:text-gray-600">Brandon Vu</a>,
+            <a href="https://architsharma97.github.io/" class="text-gray-900 hover:text-gray-600">Archit Sharma</a>,
+            <a href="https://web.stanford.edu/~bohg/" class="text-gray-900 hover:text-gray-600">Jeannette Bohg</a>,
+            <a href="https://ai.stanford.edu/~cbfinn/" class="text-gray-900 hover:text-gray-600">Chelsea Finn</a>
+          </p>
+          <p class="text-gray-600">
+            ICRA 2024
+          </p>
+          <div class="mt-1 flex space-x-4">
+            <a href="./publications/robofume_icra2024.pdf" class="text-gray-900 hover:underline">Paper</a>
+            <a href="https://robofume.github.io/" class="text-gray-900 hover:underline">Website</a>
+            <a href="https://arxiv.org/abs/2310.15145" class="text-gray-900 hover:underline">Arxiv</a>
+          </div>
+          <div class="paper-summary hidden mt-2 text-gray-700 leading-relaxed">
+            <p>
+              We propose a system that enables autonomous and efficient real-world robot learning. Our insights are to utilize calibrated offline RL techniques to ensure efficient online fine-tuning of a pre-trained policy in the presence of distribution shifts and leverage pre-trained vision language models (VLMs) to build a robust reward classifier for autonomously providing reward signals during the online fine-tuning process.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication: Global Differentiable Sim -->
+      <div class="flex flex-col md:flex-row md:items-start">
+        <div class="md:w-1/4 mb-4 md:mb-0">
+          <img
+            src="./images/globdiff_corl2022.gif"
+            alt="Global Differentiable Simulation teaser"
+            class="w-full rounded-lg shadow-lg"
+          />
+        </div>
+        <div class="md:w-3/4 md:pl-8 space-y-2">
+          <p class="text-2xl font-semibold text-gray-900">
+            <a href="./publications/globdiff_corl2022.pdf" class="hover:underline text-gray-900">Rethinking Optimization with Differentiable Simulation from a Global Perspective</a>
+          </p>
+          <p class="text-gray-600">
+            <a href="https://contactrika.github.io/" class="text-gray-900 hover:text-gray-600">Rika Antonova*</a>,
+            <span class="font-bold text-black">Jingyun Yang*</span>,
+            <a href="https://krrish94.github.io/" class="text-gray-900 hover:text-gray-600">Krishna Murthy Jatavallabhula</a>,
+            <a href="https://web.stanford.edu/~bohg/" class="text-gray-900 hover:text-gray-600">Jeannette Bohg</a>
+          </p>
+          <p class="text-gray-600">
+            CoRL 2022, <span class="text-red-600 font-bold">Oral (6.5% acceptance rate)</span>
+          </p>
+          <div class="mt-1 flex space-x-4">
+            <a href="./publications/globdiff_corl2022.pdf" class="text-gray-900 hover:underline">Paper</a>
+            <a href="/projects/globdiff/" class="text-gray-900 hover:underline">Website</a>
+            <a href="https://arxiv.org/abs/2207.00167" class="text-gray-900 hover:underline">Arxiv</a>
+          </div>
+          <div class="paper-summary hidden mt-2 text-gray-700 leading-relaxed">
+            <p>
+              We study the challenges that differentiable simulation presents when it is not feasible to expect that a single descent reaches a global optimum, which is often a problem in contact-rich scenarios. In dynamic environments, we find that differentiable simulators produce rugged landscapes with nonetheless useful gradients in some parts of the space. We propose a method that combines Bayesian optimization with semi-local “leaps” to obtain a global search method that can use gradients effectively, while also maintaining robust performance in regions with noisy gradients.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication: VIPTL -->
+      <div class="flex flex-col md:flex-row md:items-start">
+        <div class="md:w-1/4 mb-4 md:mb-0">
+          <img
+            src="./images/viptl_icra2022.gif"
+            alt="VIPTL teaser"
+            class="w-full rounded-lg shadow-lg"
+          />
+        </div>
+        <div class="md:w-3/4 md:pl-8 space-y-2">
+          <p class="text-2xl font-semibold text-gray-900">
+            <a href="./publications/viptl_icra2022.pdf" class="hover:underline text-gray-900">Learning Periodic Tasks from Human Demonstrations</a>
+          </p>
+          <p class="text-gray-600">
+            <span class="font-bold text-black">Jingyun Yang</span>,
+            <a href="https://junwuzhang.github.io/" class="text-gray-900 hover:text-gray-600">Junwu Zhang</a>,
+            <a href="https://www.linkedin.com/in/connor-settle-9ab041161" class="text-gray-900 hover:text-gray-600">Connor Settle</a>,
+            <a href="https://ai.facebook.com/people/akshara-rai/" class="text-gray-900 hover:text-gray-600">Akshara Rai</a>,
+            <a href="https://contactrika.github.io/" class="text-gray-900 hover:text-gray-600">Rika Antonova</a>,
+            <a href="https://web.stanford.edu/~bohg/" class="text-gray-900 hover:text-gray-600">Jeannette Bohg</a>
+          </p>
+          <p class="text-gray-600">
+            ICRA 2022
+          </p>
+          <div class="mt-1 flex space-x-4">
+            <a href="./publications/viptl_icra2022.pdf" class="text-gray-900 hover:underline">Paper</a>
+            <a href="/projects/viptl/" class="text-gray-900 hover:underline">Website</a>
+            <a href="https://arxiv.org/abs/2109.14078" class="text-gray-900 hover:underline">Arxiv</a>
+          </div>
+          <div class="paper-summary hidden mt-2 text-gray-700 leading-relaxed">
+            <p>
+              We develop a method for learning periodic tasks from visual demonstrations. The core idea is to leverage periodicity in the policy structure to model periodic aspects of the tasks. We use active learning to optimize parameters of rhythmic dynamic movement primitives (rDMPs) and propose an objective to maximize the similarity between the motion of objects manipulated by the robot and the desired motion in human video demonstrations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication: V-BE -->
+      <div class="flex flex-col md:flex-row md:items-start">
+        <div class="md:w-1/4 mb-4 md:mb-0">
+          <img
+            src="./images/v-be_corl2021.gif"
+            alt="V-BE teaser"
+            class="w-full rounded-lg shadow-lg"
+          />
+        </div>
+        <div class="md:w-3/4 md:pl-8 space-y-2">
+          <p class="text-2xl font-semibold text-gray-900">
+            <a href="./publications/v-be_corl2021.pdf" class="hover:underline text-gray-900">Visually-Grounded Library of Behaviors for Manipulating Diverse Objects across Diverse Configurations and Views</a>
+          </p>
+          <p class="text-gray-600">
+            <span class="font-bold text-black">Jingyun Yang*</span>,
+            <a href="https://sfish0101.bitbucket.io/" class="text-gray-900 hover:text-gray-600">Hsiao-Yu Fish Tung*</a>,
+            <a href="https://yunchuzhang.github.io/" class="text-gray-900 hover:text-gray-600">Yunchu Zhang*</a>,
+            <a href="https://in.linkedin.com/in/gauravpathak1" class="text-gray-900 hover:text-gray-600">Gaurav Pathak</a>,
+            <a href="https://ashwinipokle.github.io/" class="text-gray-900 hover:text-gray-600">Ashwini Pokle</a>,
+            <a href="http://www.cs.cmu.edu/~cga/" class="text-gray-900 hover:text-gray-600">Christopher G. Atkeson</a>,
+            <a href="https://www.cs.cmu.edu/~katef/" class="text-gray-900 hover:text-gray-600">Katerina Fragkiadaki</a>
+          </p>
+          <p class="text-gray-600">
+            CoRL 2021
+          </p>
+          <div class="mt-1 flex space-x-4">
+            <a href="./publications/v-be_corl2021.pdf" class="text-gray-900 hover:underline">Paper</a>
+            <a href="/projects/v-be/" class="text-gray-900 hover:underline">Website</a>
+            <a href="https://openreview.net/forum?id=sIVC-oZN1PQ" class="text-gray-900 hover:underline">OpenReview</a>
+            <a href="https://github.com/clvrai/coordination" class="text-gray-900 hover:underline">Code</a>
+          </div>
+          <div class="paper-summary hidden mt-2 text-gray-700 leading-relaxed">
+            <p>
+              We propose a method for manipulating diverse objects across a wide range of initial and goal configurations and camera placements. We disentangle the standard image-to-action mapping into two separate modules: (1) a behavior selector which conditions on intrinsic and semantically-rich object appearance features to select the behaviors that can successfully perform the desired tasks on the object in hand, and (2) a library of behaviors each of which conditions on extrinsic and abstract object properties to predict actions to execute over time.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication: Coordination -->
+      <div class="flex flex-col md:flex-row md:items-start">
+        <div class="md:w-1/4 mb-4 md:mb-0">
+          <img
+            src="./images/coordination_iclr2020.gif"
+            alt="Coordination teaser"
+            class="w-full rounded-lg shadow-lg"
+          />
+        </div>
+        <div class="md:w-3/4 md:pl-8 space-y-2">
+          <p class="text-2xl font-semibold text-gray-900">
+            <a href="./publications/coordination_iclr2020.pdf" class="hover:underline text-gray-900">Learning to Coordinate Manipulation Skills via Skill Behavior Diversification</a>
+          </p>
+          <p class="text-gray-600">
+            <a href="https://youngwoon.github.io/" class="text-gray-900 hover:text-gray-600">Youngwoon Lee</a>,
+            <span class="font-bold text-black">Jingyun Yang</span>,
+            <a href="https://viterbi-web.usc.edu/~limjj/" class="text-gray-900 hover:text-gray-600">Joseph J. Lim</a>
+          </p>
+          <p class="text-gray-600">
+            ICLR 2020
+          </p>
+          <div class="mt-1 flex space-x-4">
+            <a href="./publications/coordination_iclr2020.pdf" class="text-gray-900 hover:underline">Paper</a>
+            <a href="https://clvrai.github.io/coordination/" class="text-gray-900 hover:underline">Website</a>
+            <a href="https://openreview.net/forum?id=ryxB2lBtvH" class="text-gray-900 hover:underline">OpenReview</a>
+            <a href="https://github.com/clvrai/coordination" class="text-gray-900 hover:underline">Code</a>
+          </div>
+          <div class="paper-summary hidden mt-2 text-gray-700 leading-relaxed">
+            <p>
+              Autonomous agents with multiple end-effectors can perform complex tasks by coordinating sub-skills of each end-effector. To realize temporal and behavioral coordination of skills, we propose a hierarchical framework that first individually trains sub-skills of each end-effector with skill behavior diversification, and learns to coordinate end-effectors using diverse behaviors of the skills.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication: KeyIn -->
+      <div class="flex flex-col md:flex-row md:items-start">
+        <div class="md:w-1/4 mb-4 md:mb-0">
+          <img
+            src="./images/keyin_l4dc2020.gif"
+            alt="KeyIn teaser"
+            class="w-full rounded-lg shadow-lg"
+          />
+        </div>
+        <div class="md:w-3/4 md:pl-8 space-y-2">
+          <p class="text-2xl font-semibold text-gray-900">
+            <a href="./publications/keyin_l4dc2020.pdf" class="hover:underline text-gray-900">Keyframing the Future: Keyframe Discovery for Visual Prediction and Planning</a>
+          </p>
+          <p class="text-gray-600">
+            <a href="https://kpertsch.github.io/" class="text-gray-900 hover:text-gray-600">Karl Pertsch*</a>,
+            <span class="font-bold text-black">Jingyun Yang</span>,
+            <a href="https://www.grasp.upenn.edu/people/shenghao-zhou/" class="text-gray-900 hover:text-gray-600">Shenghao Zhou</a>,
+            <a href="http://www.scs.ryerson.ca/~kosta/" class="text-gray-900 hover:text-gray-600">Konstantinos G. Derpanis</a>,
+            <a href="https://www.cis.upenn.edu/~kostas/" class="text-gray-900 hover:text-gray-600">Kostas Daniilidis</a>,
+            <a href="https://viterbi-web.usc.edu/~limjj/" class="text-gray-900 hover:text-gray-600">Joseph J. Lim</a>,
+            <a href="http://www.drewjaegle.com/" class="text-gray-900 hover:text-gray-600">Andrew Jaegle</a>
+          </p>
+          <p class="text-gray-600">
+            L4DC 2020
+          </p>
+          <div class="mt-1 flex space-x-4">
+            <a href="./publications/keyin_l4dc2020.pdf" class="text-gray-900 hover:underline">Paper</a>
+            <a href="https://sites.google.com/view/keyin" class="text-gray-900 hover:underline">Website</a>
+            <a href="https://arxiv.org/abs/1904.05869" class="text-gray-900 hover:underline">Arxiv</a>
+            <a href="https://www.youtube.com/watch?v=e2hVV5FDKf8" class="text-gray-900 hover:underline">Video</a>
+          </div>
+          <div class="paper-summary hidden mt-2 text-gray-700 leading-relaxed">
+            <p>
+              To flexibly and efficiently reason about temporal sequences, abstract representations that compactly represent the important information in the sequence are needed. We propose to construct such representations using a hierarchical Keyframe‐Inpainter (KeyIn) model that first generates keyframes and their temporal placement and then inpaints the sequences between keyframes. We propose a fully differentiable formulation for efficiently learning the keyframe placement. We show that KeyIn finds informative keyframes in several datasets with diverse dynamics. When evaluated on a planning task, KeyIn outperforms other recent proposals for learning hierarchical representations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function toggleAllSummaries() {
+      const summaries = document.querySelectorAll('.paper-summary');
+      summaries.forEach(el => {
+        el.classList.toggle('hidden');
+      });
+    }
+  </script>
 </body>
 </html>
-
