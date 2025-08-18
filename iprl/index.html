@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <title>Interactive Perception and Robot Learning Lab-Home</title>
+  <meta name="author" content="Jeannette Bohg">
+  <meta name="description" content="Interactive Perception and Robot Learning Lab-Home">
+  <meta name="keywords" content="Interactive Perception, Robotics, Manipulation, Grasping, Machine Learning, Multi-Modality">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Hanken Grotesk', 'system-ui', 'sans-serif'],
+            serif: ['Cormorant', 'serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .title { font-family: 'Cormorant', serif; }
+    .carousel-container {
+      overflow: hidden;
+      position: relative;
+      padding: 2rem 0;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(.22, .61, .36, 1);
+    }
+    .carousel-slide {
+      min-width: 60%;
+      max-width: 60%;
+      padding: 0 1rem;
+      transition: opacity 0.5s ease;
+    }
+    .carousel-slide:not(.active) {
+      opacity: 0.3;
+    }
+    .carousel-slide.active {
+      opacity: 1;
+    }
+    .carousel-video-container {
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      border-radius: 1.5rem; /* rounded-3xl */
+      overflow: hidden;
+      background: white;
+    }
+    .carousel-video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background-color: #f1f5f9; /* slate-100 */
+    }
+    .carousel-text-item {
+      transition: opacity 0.4s ease-in-out;
+      position: absolute;
+      width: 100%;
+    }
+    /* --- Mobile Fullscreen Nav Overlay --- */
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 150;
+      background: rgba(255,255,255,0.97);
+      transition: opacity 0.3s;
+      opacity: 0;
+      overflow-y: auto;
+    }
+    .mobile-nav-overlay.open {
+      display: flex;
+      opacity: 1;
+    }
+    .mobile-nav-overlay-content {
+      margin: auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+      /* Ensure content is not hidden under header */
+      padding-top: 4rem;
+    }
+    .mobile-nav-link {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #334155;
+      transition: color 0.2s;
+      text-align: center;
+    }
+    .mobile-nav-link:hover {
+      color: #0ea5e9;
+    }
+    /* Ensure header is above overlay content */
+    header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      width: 100%;
+      /* transition for background if needed */
+      transition: box-shadow 0.2s, background 0.2s;
+    }
+    /* Add shadow/background when overlay is open */
+    header.mobile-nav-active {
+      background: rgba(255,255,255,0.98);
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+    }
+    /* Mobile: Carousel slides 90% width */
+    @media (max-width: 768px) {
+      .carousel-slide {
+        min-width: 90%;
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-800 font-sans">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-200 transition-all duration-300">
+    <nav class="relative max-w-5xl mx-auto px-6 flex items-center justify-between h-16">
+      <div class="text-lg font-semibold text-slate-900">Stanford IPRL</div>
+      <button id="mobileMenuBtn" class="md:hidden p-2 rounded-md" aria-label="Open Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+      </button>
+      <ul id="mainNav" class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <li><a href="#home" class="hover:text-slate-900 transition-colors">Home</a></li>
+        <li><a href="#people" class="hover:text-slate-900 transition-colors">People</a></li>
+        <li><a href="publications.html" class="hover:text-slate-900 transition-colors">Publications</a></li>
+        <li><a href="#contact" class="hover:text-slate-900 transition-colors">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Mobile Fullscreen Navigation Overlay -->
+  <div id="mobileNavOverlay" class="mobile-nav-overlay">
+    <div class="mobile-nav-overlay-content">
+      <a class="mobile-nav-link" href="#home" data-nav>Home</a>
+      <a class="mobile-nav-link" href="#people" data-nav>People</a>
+      <a class="mobile-nav-link" href="publications.html" data-nav>Publications</a>
+      <a class="mobile-nav-link" href="#contact" data-nav>Contact</a>
+    </div>
+  </div>
+
+  <main id="main" class="relative">
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden -mt-16">
+      <div class="absolute inset-0 -z-10 bg-slate-50 overflow-hidden">
+        <!-- Top Rose ellipse -->
+        <div class="absolute h-[1200px] w-[1200px] top-10 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-pink-300/20 blur-3xl"></div>
+        <div class="absolute h-[900px] w-[800px] -top-40 left-1/2 -translate-x-1/4 rounded-full bg-pink-300/20 blur-3xl"></div>
+        <!-- Bottom Left Sky ellipse -->
+        <div class="absolute h-[1000px] w-[1000px] -bottom-40 -left-40 rounded-full bg-sky-200/20 blur-3xl"></div>
+        <div class="absolute h-[699px] w-[700px] -bottom-200 -left-40 rounded-full bg-sky-200/20 blur-3xl"></div>
+        <!-- Right Yellow ellipse -->
+        <div class="absolute h-[1200px] w-[1200px] top-1/4 -right-40 rounded-full bg-purple-200/20 blur-3xl"></div>
+        <div class="absolute h-[400px] w-[600px] top-1/2 -right-40 rounded-full bg-purple-200/30 blur-3xl"></div>
+    </div>
+      <div class="max-w-4xl mx-auto px-6 pt-36 pb-12 text-center">
+        <h1 class="title text-6xl md:text-7xl font-bold tracking-tight text-slate-900">Interactive Perception and Robot Learning Lab</h1>
+        <p class="mt-6 px-3 text-xl/9 text-black max-w-3xl mx-auto font-light">Advancing robust sensorimotor coordination at the intersection of robotics, machine learning, and computer vision.</p>
+        <div class="mt-8">
+          <a class="bg-rose-500 text-white inline-flex items-center gap-2 font-semibold py-3 px-6 rounded-full shadow-md shadow-rose-500/20 hover:bg-rose-600 hover:shadow-md hover:shadow-rose-300/60 hover:-translate-y-px transition-all" href="https://twitter.com/StanfordIPRL" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.177 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 012.8 9.713v.052a4.106 4.106 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
+            Follow Us
+          </a>
+        </div>
+      </div>
+
+      <!-- Projects Carousel -->
+      <div class="carousel-container">
+        <div id="carouselTrack" class="carousel-track">
+            <!-- Masquerade -->
+            <div class="carousel-slide" data-index="0">
+              <div class="carousel-video-container"><a href="https://masquerade-robot.github.io/"><video src="assets/images/projects/masquerade.mp4" class="carousel-video" muted loop autoplay playsinline></video></a></div>
+            </div>
+            <!-- Mobi-π -->
+            <div class="carousel-slide" data-index="1">
+              <div class="carousel-video-container"><a href="https://mobipi.github.io/"><video src="assets/images/projects/mobipi.mp4" class="carousel-video" muted loop autoplay playsinline></video></a></div>
+            </div>
+            <!-- Consistency Policy -->
+            <div class="carousel-slide" data-index="2">
+              <div class="carousel-video-container"><a href="https://tidybot2.github.io/"><video src="assets/images/projects/tidybot2.mp4" class="carousel-video" muted loop autoplay playsinline></video></a></div>
+            </div>
+            <!-- TidyBot -->
+            <div class="carousel-slide" data-index="3">
+              <div class="carousel-video-container"><a href="https://tidybot.cs.princeton.edu/"><video src="assets/images/projects/tidybot.mp4" class="carousel-video" muted loop autoplay playsinline></video></a></div>
+            </div>
+        </div>
+      </div>
+      <div class="max-w-4xl mx-auto px-6 pb-20">
+        <div class="flex items-center justify-between">
+            <div id="carouselTextContainer" class="relative w-full h-12">
+                <!-- Text Slides -->
+                <div class="carousel-text-item" data-index="0"><h3 class="text-xl font-bold text-slate-900">Masquerade</h3></a><p class="text-sm text-slate-500 mt-1">Lepert et al., 2025</p></div>
+                <div class="carousel-text-item" data-index="1"><h3 class="text-xl font-bold text-slate-900">Mobi-π</h3><p class="text-sm text-slate-500 mt-1">Yang et al., 2025</p></div>
+                <div class="carousel-text-item" data-index="2"><h3 class="text-xl font-bold text-slate-900">TidyBot++</h3><p class="text-sm text-slate-500 mt-1">Wu et al., 2024</p></div>
+                <div class="carousel-text-item" data-index="3"><h3 class="text-xl font-bold text-slate-900">TidyBot</h3><p class="text-sm text-slate-500 mt-1">Wu et al., 2023</p></div>
+            </div>
+            <div class="flex-shrink-0 flex items-center gap-2 ml-8">
+                <button id="ctrlPrev" class="carousel-ctrl p-2 rounded-full bg-white hover:bg-gray-50 transition-colors" aria-label="Previous"><svg class="w-5 h-5 text-slate-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" /></svg></button>
+                <button id="ctrlNext" class="carousel-ctrl p-2 rounded-full bg-white hover:bg-gray-50 transition-colors" aria-label="Next"><svg class="w-5 h-5 text-slate-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg></button>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section id="abstract" class="py-20">
+      <div class="max-w-3xl mx-auto px-6 mt-5">
+        <h2 class="title text-5xl font-bold tracking-tight text-slate-900">Overview</h2>
+        <div class="mt-6 text-slate-700 space-y-4 text-base leading-relaxed">
+            <p>
+            The Interactive Perception and Robot Learning Lab is part of the <a class="text-sky-500 font-medium hover:underline" href="http://ai.stanford.edu/">Stanford AI
+                Lab</a> at the <a class="text-sky-500 font-medium hover:underline" href="https://cs.stanford.edu/">Computer Science Department</a>. We seek to understand the
+            underlying principles of robust sensorimotor coordination by implementing them on robots. Our work is at the
+            intersection of Robotics, Machine Learning and Computer Vision applied to problems in Autonomous Robotic
+            Manipulation.
+            </p>
+            <p>Prospective lab members: please read more about <a href="#contact" class="text-sky-500 font-medium hover:underline">our contact information</a>.</p>
+            <div class="bg-slate-50 rounded-lg overflow-hidden pt-5 saturate-[.75]">
+              <img src="assets/images/group_pic_1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Group Picture" class="w-full object-cover rounded-lg" />
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Timeline -->
+    <section id="news" class="py-16 bg-white">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="title text-5xl font-bold tracking-tight text-slate-900 mb-12">News</h2>
+            <ol class="relative border-l border-slate-200 ml-3">
+                <li class="mb-12 ml-8">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-sky-100 rounded-full -left-3 ring-8 ring-white"><svg class="w-3 h-3 text-sky-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/></svg></span>
+                    <time class="block pt-1.5 mb-2 text-sm font-bold leading-none">August, 2025</time>
+                    <p class="text-base font-normal text-slate-800">Four papers have been accepted to CoRL 2025. See you in Seoul!</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <a href="https://phantom-human-videos.github.io/" target="_blank" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-slate-800 bg-white border border-slate-200 rounded-lg hover:bg-slate-100 hover:text-sky-700 focus:z-10 focus:ring-2 focus:ring-slate-200 transition-colors">Phantom</a>
+                        <a href="https://mobipi.github.io/" target="_blank" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-slate-800 bg-white border border-slate-200 rounded-lg hover:bg-slate-100 hover:text-sky-700 focus:z-10 focus:ring-2 focus:ring-slate-200 transition-colors">Mobi-π</a>
+                        <a href="https://human2sim2robot.github.io/" target="_blank" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-slate-800 bg-white border border-slate-200 rounded-lg hover:bg-slate-100 hover:text-sky-700 focus:z-10 focus:ring-2 focus:ring-slate-200 transition-colors">Human2Sim2Robot</a>
+                        <a href="https://suninghuang19.github.io/particleformer_page/" target="_blank" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-slate-800 bg-white border border-slate-200 rounded-lg hover:bg-slate-100 hover:text-sky-700 focus:z-10 focus:ring-2 focus:ring-slate-200 transition-colors">ParticleFormer</a>
+                    </div>
+                </li>
+                <li class="mb-12 ml-8">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-sky-100 rounded-full -left-3 ring-8 ring-white"><svg class="w-3 h-3 text-sky-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/></svg></span>
+                    <time class="block pt-1.5 mb-2 text-sm font-bold leading-none">July, 2025</time>
+                    <p class="text-base font-normal text-slate-800">We are excited to welcome Dr. Cherie Ho and Dr. Dian Wang to join IPRL as new postdoctoral researchers!</p>
+                </li>
+                <li class="mb-12 ml-8">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-sky-100 rounded-full -left-3 ring-8 ring-white"><svg class="w-3 h-3 text-sky-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/></svg></span>
+                    <time class="block pt-1.5 mb-2 text-sm font-bold leading-none">June, 2025</time>
+                    <p class="text-base font-normal text-slate-800">Chris's paper CUPID has won the Best Paper Award at the RSS 2025 Workshop on Robot Evaluation for the Real World!</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                      <a href="https://cupid-curation.github.io/" target="_blank" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-slate-800 bg-white border border-slate-200 rounded-lg hover:bg-slate-100 hover:text-sky-700 focus:z-10 focus:ring-2 focus:ring-slate-200 transition-colors">CUPID</a>
+                    </div>
+                </li>
+                <li class="mb-12 ml-8">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-sky-100 rounded-full -left-3 ring-8 ring-white"><svg class="w-3 h-3 text-sky-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/></svg></span>
+                    <time class="block pt-1.5 mb-2 text-sm font-bold leading-none">April, 2025</time>
+                    <p class="text-base font-normal text-slate-800">Prof. Bohg gave a talk at the Stanford HAI Spring Conference.</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                      <a href="https://x.com/StanfordHAI/status/1907116353057862028" target="_blank" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-slate-800 bg-white border border-slate-200 rounded-lg hover:bg-slate-100 hover:text-sky-700 focus:z-10 focus:ring-2 focus:ring-slate-200 transition-colors">Read More</a>
+                    </div>
+                </li>
+                <li class="mb-12 ml-8">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-sky-100 rounded-full -left-3 ring-8 ring-white"><svg class="w-3 h-3 text-sky-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/></svg></span>
+                    <time class="block pt-1.5 mb-2 text-sm font-bold leading-none">February, 2025</time>
+                    <p class="text-base font-normal text-slate-800">Congratulations to Dr. Krishnan Srinivasan on successfully defending his PhD thesis!</p>
+                </li>
+                <li class="mb-12 ml-8">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-sky-100 rounded-full -left-3 ring-8 ring-white"><svg class="w-3 h-3 text-sky-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/></svg></span>
+                    <time class="block pt-1.5 mb-2 text-sm font-bold leading-none">December, 2024</time>
+                    <p class="text-base font-normal text-slate-800">We release TidyBot++, our new open-source mobile manipulator platform!</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <a href="https://x.com/jimmyyhwu/status/1867267048864461166" target="_blank" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-slate-800 bg-white border border-slate-200 rounded-lg hover:bg-slate-100 hover:text-sky-700 focus:z-10 focus:ring-2 focus:ring-slate-200 transition-colors">Read More</a>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- People Section -->
+    <section id="people" class="py-16 bg-white">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="title text-5xl font-bold tracking-tight text-slate-900 mb-12">People</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-6 gap-y-10">
+          
+          <!-- Current Members -->
+          <a href="https://web.stanford.edu/~bohg/" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/jb_square.jpg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Jeannette Bohg" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Jeannette Bohg</h3>
+              <p class="text-sm text-slate-600">Group Leader</p>
+            </div>
+          </a>
+          
+          <a href="" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/francis-engelmann.png" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Francis Engelmann" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Francis Engelmann</h3>
+              <p class="text-sm text-slate-600">Postdoc</p>
+            </div>
+          </a>
+
+          <a href="https://cherieho.com" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/ho_cherie.jpg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Cherie Ho" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Cherie Ho</h3>
+              <p class="text-sm text-slate-600">Postdoc</p>
+            </div>
+          </a>
+
+          <a href="https://dianwang.io" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/dian_wang.jpg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Dian Wang" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Dian Wang</h3>
+              <p class="text-sm text-slate-600">Postdoc</p>
+            </div>
+          </a>
+
+          <a href="https://tylerlum.github.io/" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/tyler_square.jpg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Tyler Lum" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Tyler Lum</h3>
+              <p class="text-sm text-slate-600">Ph.D. Student <br>w/ Karen Liu</p>
+            </div>
+          </a>
+
+          <a href="https://marionlepert.github.io/" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/marion_square_v2.png" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Marion Lepert" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Marion Lepert</h3>
+              <p class="text-sm text-slate-600">Ph.D. Student</p>
+            </div>
+          </a>
+
+          <a href="https://cs.stanford.edu/~priyasun" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/priya.jpg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Priya Sundaresan" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Priya Sundaresan</h3>
+              <p class="text-sm text-slate-600">Ph.D. Student <br>w/ Dorsa Sadigh</p>
+            </div>
+          </a>
+          
+          <a href="https://www.chrisagia.com/" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/chris_agia_square.png" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Chris Agia" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Chris Agia</h3>
+              <p class="text-sm text-slate-600">Ph.D. Student <br>w/ Marco Pavone</p>
+            </div>
+          </a>
+
+          <a href="https://yjy0625.github.io/" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/jingyun.jpg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Jingyun Yang" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Jingyun Yang</h3>
+              <p class="text-sm text-slate-600">Ph.D. Student</p>
+            </div>
+          </a>
+
+          <a href="https://carlotapares.com" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/carlota.jpg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Carlota Pares" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Carlota Pares</h3>
+              <p class="text-sm text-slate-600">Ph.D. Student</p>
+            </div>
+          </a>
+
+          <a href="" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/IMG_8846.jpg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Satvik Sharma" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Satvik Sharma</h3>
+              <p class="text-sm text-slate-600">Ph.D. Student <br>w/ Dorsa Sadigh</p>
+            </div>
+          </a>
+
+          <a href="https://suninghuang19.github.io/" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/suning_huang.jpg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Suning Huang" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Suning Huang</h3>
+              <p class="text-sm text-slate-600">Ph.D. Student <br>w/ Mac Schwager</p>
+            </div>
+          </a>
+
+          <a href="https://kushal2000.github.io/" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/kushal.jpg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Kushal Kedia" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Kushal Kedia</h3>
+              <p class="text-sm text-slate-600">Visiting Ph.D. Student</p>
+            </div>
+          </a>
+
+          <a href="" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/olivia_lee.jpg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Olivia Lee" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Olivia Lee</h3>
+              <p class="text-sm text-slate-600">Co-term Student</p>
+            </div>
+          </a>
+
+          <a href="" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/bhavna_sud.png" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Bhavna Sud" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Bhavna Sud</h3>
+              <p class="text-sm text-slate-600">Masters Student</p>
+            </div>
+          </a>
+
+          <a href="" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/aarya_sumuk.jpeg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Aarya Sumuk" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Aarya Sumuk</h3>
+              <p class="text-sm text-slate-600">Masters Student</p>
+            </div>
+          </a>
+
+          <a href="" class="group block">
+            <div class="bg-slate-50 rounded-lg overflow-hidden">
+              <img src="assets/images/isabel_liu.jpg" onerror="this.onerror=null;this.src='https://placehold.co/200x200/f1f5f9/334155?text=Photo';" alt="Isabel Liu" class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="pt-3">
+              <h3 class="font-semibold text-slate-900 group-hover:text-sky-500 transition-colors">Isabel Liu</h3>
+              <p class="text-sm text-slate-600">Visiting Undergrad</p>
+            </div>
+          </a>
+        </div>
+
+        <h3 class="title text-3xl font-bold tracking-tight text-slate-900 mt-20 mb-8">Former Members</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-slate-700 text-sm">
+          <div class="space-y-2">
+            <p>Jiaying Fang (Cornell)</p>
+            <p>Claire Chen</p>
+            <p>Jimmy Wu (NVIDIA)</p>
+            <!-- <p>Olivia Lee</p> -->
+            <p>Rika Antonova (University of Cambridge)</p>
+            <p>Dan Morton (Stanford)</p>
+            <p>Kevin Lin (UT Austin)</p>
+            <p>Edwin Pan (Scale AI)</p>
+            <p>Tara Sadjadpour (Berkeley)</p>
+            <p>Andrey Kurenkov (Astrocade)</p>
+            <p>Toki Migimatsu (Figure) </p>
+            <p>Mengxi Li (Citadel) </p>
+            <p>Millie Salvato </p>
+            <p>Negin Heravi (Snap)</p>
+            <p>Nick Heppert (University of Freiburg) </p>
+            <p>Jacqueline Yau (Apple)</p>
+            <p>Chaoyi Pan (CMU) </p>
+            <p>Brent Yi (Berkeley) </p>
+            <p>Samuel Clarke </p>
+            <p>Michelle Lee (Medra) </p>
+            <p>Lin Shao (NUS Singapore) </p>
+            <p>Shushman Choudhury (Lacuna) </p>
+          </div>
+          <div class="space-y-2">
+            <p>Krishnan Srinivasan (TRI)</p>
+            <p>Zhongchun Yu</p>
+            <p>Michelle Yi</p>
+            <p>Zi-ang Cao (UT Austin)</p>
+            <p>Simon Reisch (Tessel)</p>
+            <p>Udari Madhusudani</p>
+            <p>Yixuan Huang</p>
+            <p>Sophie Lueth (TU Darmstadt)</p>
+            <p>Aaditya Prasad</p>
+            <p>Brandon Vu (MIT)</p>
+            <p>Rachel Gardner (Aurora) </p>
+            <p>Alina Kloss (NEURA Robotics) </p>
+            <p>Mengyuan Yan (OpenAI)</p>
+            <p>Peter Zachares (nPlan) </p>
+            <p>Hsu-kuang Chiu (Waymo) </p>
+            <p>Matthew Tan </p>
+            <p>Allesandro Palleschi </p>
+            <p>Karen Yang (EE)</p>
+            <p>Xingyu Liu (EE)</p>
+            <p>Wenzhen Yuan (CMU)</p>
+            <p>Fabio Ferreira (University of Freiburg)</p>
+          </div>
+          <div class="space-y-2">
+            <p>Jane Wu (CS)</p>
+            <p>Haley Smith (ME)</p>
+            <p>Rohun Kulkarni (ME)</p>
+            <p>Varun Nambiar (EE)</p>
+            <p>Yilin Zhu (CS)</p>
+            <p>Mia Kokic (KTH, Sweden)</p>
+            <p>Thomas Baumeister (Apple)</p>
+            <p>Simon Pierre Marie LeCleach (ME)</p>
+            <p>Parth Sha (Apple)</p>
+            <p>Vikranth Reddy Dwaracherla (EE)</p>
+            <p>Andres Campos Alvarado (ME)</p>
+            <p>Xinru Hua (CS)</p>
+            <p>Scott David Hemley (ME)</p>
+            <p>Seth Evan Charles (ME)</p>
+            <p>Dipti Vijai Motwani (ME)</p>
+            <p>Yifan You (Berkeley)</p>
+            <p>Ben Jun Xiong Wu (CS)</p>
+            <p>Jonathan Henry Zwiebel (CS)</p>
+            <p>Ian Ng (CS)</p>
+            <p>Tingguang Li (CUHK, China)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teaching -->
+    <section id="teaching" class="py-16 bg-white">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="title text-5xl font-bold tracking-tight text-slate-900 mb-8">Teaching</h2>
+        <div class="space-y-3">
+            <a class="block text-sky-500 font-medium hover:underline" href="https://web.stanford.edu/class/cs231a/">CS231a: Computer Vision: From 3D Reconstruction to Recognition</a>
+            <a class="block text-sky-500 font-medium hover:underline" href="http://web.stanford.edu/class/cs326/">CS326: Topics in Advanced Robotic Manipulation</a>
+            <a class="block text-sky-500 font-medium hover:underline" href="http://web.stanford.edu/class/cs237b/">CS237b: Principles of Robot Autonomy II</a>
+        </div>
+        <h3 class="title text-3xl font-bold tracking-tight text-slate-900 mt-10 mb-4">Past Courses</h3>
+        <div class="space-y-3">
+            <a class="block text-sky-500 font-medium hover:underline" href="https://cs.stanford.edu/groups/manips/teaching/cs223a/">CS223a: Introduction to Robotics</a>
+            <a class="block text-sky-500 font-medium hover:underline" href="http://cs336.stanford.edu/">CS336: Robot Perception and Decision-Making</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16 bg-white">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="title text-5xl font-bold tracking-tight text-slate-900 mb-10">Contact</h2>
+        <div class="space-y-10">
+          <div>
+            <h3 class="title text-3xl font-semibold text-slate-900">Prospective Lab Members</h3>
+            <div class="mt-4 space-y-3 text-slate-700 leading-relaxed">
+                <p>We may take on new PhD students each year. If you are a <strong>prospective PhD
+                    student</strong>, we ask that you do not contact us directly with regard to PhD admissions until after
+                  you are admitted, as we will not be able to reply to emails from individual applicants.</p>
+                <p>If you are a <strong>Stanford undergraduate, masters, or co-term</strong> interested in
+                  research opportunities, please complete this form: <a
+                    class="text-sky-500 no-underline hover:underline" href="https://docs.google.com/forms/d/e/1FAIpQLScLXhlBwGWU5d3y6rtjUp9KmTEtwk_fDunv9-Tin0gLF98Rag/viewform?usp=sf_link"><strong><u>Link</u></strong></a>
+                </p>
+                <p>If you are interested in a <strong>post-doc</strong> position, please read this form : <a
+                    class="text-sky-500 no-underline hover:underline" href="https://docs.google.com/forms/d/e/1FAIpQLSdR_-BumIfuk5ibRJKT_KFYweSOYOREKrEI3XzOM_0vlT5s4A/viewform?usp=sf_link"><strong><u>Link</u></strong></a>
+                </p>
+                <p>If you are not a Stanford student and interested in <strong>visiting researcher</strong>
+                  positions, please read this from: <a
+                    class="text-sky-500 no-underline hover:underline" href="https://docs.google.com/forms/d/e/1FAIpQLScslAcg1up-tK-4lFIFQO1ORecUxIcvXeu52Yd1kWPnI4yM4g/viewform?usp=sf_link"><strong><u>Link</u></strong></a>
+                </p>
+            </div>
+          </div>
+          <div>
+            <h3 class="title text-3xl font-semibold text-slate-900">General Information</h3>
+            <div class="mt-4 space-y-2 text-slate-700">
+                <p><strong>Address: </strong>353 Jane Stanford Way, Stanford, CA 94305</p>
+                <p><strong>Phone: </strong>(650) 725-4314</p>
+                <p><strong>Office hours: </strong> Wednesdays 9-10am (Zoom link available upon request)</p>
+                <p><strong>Admin: </strong>
+                <script>
+                    var username = "kassie24";
+                    var hostname = "stanford.edu";
+                    var linktext = "Kassie Rodriguez";
+                    document.write("<a class='font-medium text-sky-500 hover:underline' href='" + "mail" + "to:" + username + "@" + hostname + "'>" + linktext + "</a>");
+                </script>
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-900/5">
+      <div class="max-w-5xl mx-auto px-6 py-8 text-sm text-slate-500 text-center">&copy; 2025 Interactive Perception and Robot Learning Lab</div>
+    </footer>
+  </main>
+
+  <script>
+    // --- Mobile Menu Toggle ---
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+    const header = document.querySelector('header');
+    let menuOpen = false;
+
+    function openMobileMenu() {
+      mobileNavOverlay.classList.add('open');
+      mobileNavOverlay.style.display = 'flex';
+      setTimeout(() => { mobileNavOverlay.style.opacity = '1'; }, 10);
+      menuOpen = true;
+      document.body.style.overflow = 'hidden';
+      // Add class to header to show background/shadow
+      header.classList.add('mobile-nav-active');
+    }
+    function closeMobileMenu() {
+      mobileNavOverlay.style.opacity = '0';
+      setTimeout(() => {
+        mobileNavOverlay.classList.remove('open');
+        mobileNavOverlay.style.display = 'none';
+      }, 300);
+      menuOpen = false;
+      document.body.style.overflow = '';
+      // Remove class from header
+      header.classList.remove('mobile-nav-active');
+    }
+
+    if (mobileBtn && mobileNavOverlay) {
+      mobileBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openMobileMenu();
+      });
+
+      // Dismiss menu when clicking outside the menu content
+      mobileNavOverlay.addEventListener('click', (e) => {
+        if (e.target === mobileNavOverlay) {
+          closeMobileMenu();
+        }
+      });
+
+      // Dismiss menu when clicking the header (nav bar)
+      header.addEventListener('click', (e) => {
+        if (menuOpen && !mobileBtn.contains(e.target)) {
+          closeMobileMenu();
+        }
+      });
+
+      // Handle menu item click: fade out then redirect
+      mobileNavOverlay.querySelectorAll('[data-nav]').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const href = this.getAttribute('href');
+          closeMobileMenu();
+          setTimeout(() => {
+            window.location.href = href;
+          }, 320);
+        });
+      });
+
+      // Optional: close menu on ESC key
+      document.addEventListener('keydown', (e) => {
+        if (menuOpen && e.key === 'Escape') {
+          closeMobileMenu();
+        }
+      });
+    }
+
+    // --- Card Carousel Logic ---
+    (function(){
+      const track = document.getElementById('carouselTrack');
+      const textContainer = document.getElementById('carouselTextContainer');
+      if (!track || !textContainer) return;
+      
+      const slides = Array.from(track.children);
+      const textItems = Array.from(textContainer.children);
+      const prevBtn = document.getElementById('ctrlPrev');
+      const nextBtn = document.getElementById('ctrlNext');
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      const slideMargin = 0;
+      
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        const offset = -currentIndex * (slideWidth + slideMargin) + (track.parentElement.clientWidth / 2) - (slideWidth / 2) - (slideMargin / 2);
+        track.style.transform = `translateX(${offset}px)`;
+
+        slides.forEach((slide, index) => {
+          if (index === currentIndex) {
+            slide.classList.add('active');
+          } else {
+            slide.classList.remove('active');
+          }
+        });
+
+        textItems.forEach((item, index) => {
+            if (index === currentIndex) {
+                item.style.opacity = '1';
+            } else {
+                item.style.opacity = '0';
+            }
+        });
+      }
+
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateCarousel();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+      });
+
+      // Initial setup
+      window.addEventListener('load', updateCarousel);
+      window.addEventListener('resize', () => {
+        // Recalculate width on resize
+        const newSlideWidth = slides[0].getBoundingClientRect().width;
+        const newOffset = -currentIndex * (newSlideWidth + slideMargin) + (track.parentElement.clientWidth / 2) - (newSlideWidth / 2) - (slideMargin / 2);
+        track.style.transform = `translateX(${newOffset}px)`;
+      });
+
+    })();
+
+    // --- Nav Bar Scroll Effect ---
+    (function() {
+      const header = document.querySelector('header');
+      if (!header) return;
+
+      const scrollThreshold = 30; // Pixels to scroll before changing nav bar
+
+      function updateHeader() {
+        if (window.scrollY > scrollThreshold) {
+          // Add classes for the solid/blurred background
+          header.classList.add('bg-white/80', 'backdrop-blur-lg');
+        } else {
+          // Remove classes to make it transparent again
+          header.classList.remove('bg-white/80', 'backdrop-blur-lg');
+        }
+      }
+
+      // Listen for scroll events
+      window.addEventListener('scroll', updateHeader);
+
+      // Run on page load as well in case the page is reloaded mid-scroll
+      document.addEventListener('DOMContentLoaded', updateHeader);
+    })();
+  </script>
+</body>
+</html>
