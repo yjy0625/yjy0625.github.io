@@ -22,7 +22,7 @@
     "gatsby-source-filesystem": "^4.25.0",
     "gatsby-transformer-json": "^4.25.0",
     "less": "^3.13.1",
-    "npm": "^9.9.0",
+    "npm": "^11.7.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-helmet": "^5.2.1",
